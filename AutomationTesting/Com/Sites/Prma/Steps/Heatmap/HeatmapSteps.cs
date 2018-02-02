@@ -42,8 +42,8 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.IsTrue(isFound);
         }
         
-        [When(@"I check the number of each requirement")]
-        public void WhenICheckTheNumberOfEachRequirement()
+        [Then(@"I check the number of each requirement")]
+        public void ThenICheckTheNumberOfEachRequirement()
         {
            heatmapTooltipPage = new HeatmapTooltipPage(webdriver.GetDriver());
            IList<HeatmapTooltipModel> data = heatmapTooltipPage.GrabTooltipData();
@@ -72,8 +72,8 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             heatmapPage.ClickOnTotalSummaryCell();
         }
 
-        [Then(@"a modal with '(.*)' appears")]
-        public void ThenAModalWithAppears(string title)
+        [Then(@"a modal with title '(.*)' appears")]
+        public void ThenAModalWithTitleAppears(string title)
         {
             bool isDisplayed = heatmapPage.IsModalDisplayed();
             Assert.True(isDisplayed);
