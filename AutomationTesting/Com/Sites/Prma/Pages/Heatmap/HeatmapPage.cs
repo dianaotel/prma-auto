@@ -57,7 +57,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 
         public string GetModalTitle()
         {
-            return webdriver.FindElement(modalTitle).Text;
+            return webdriver.FindElement(modalTitle).Text.Trim();
         }
 
         public void GrabCellsColorsData()

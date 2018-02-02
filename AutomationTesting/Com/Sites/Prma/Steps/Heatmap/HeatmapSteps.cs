@@ -78,7 +78,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             bool isDisplayed = heatmapPage.IsModalDisplayed();
             Assert.True(isDisplayed);
             string actualTitle = heatmapPage.GetModalTitle();
-            Assert.AreEqual(title, actualTitle.Trim());
+            Assert.AreEqual(title, actualTitle);
         }
 
 

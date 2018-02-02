@@ -35,7 +35,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         public async Task ThenIShouldSeeTheLandingPageTitle(string title)
         {
             string actualPageTitle = await landingPage.GetPageTitle();
-            Assert.AreEqual(title, actualPageTitle.Trim());
+            Assert.AreEqual(title, actualPageTitle);
         }
 
         [Then(@"I should see project cards")]

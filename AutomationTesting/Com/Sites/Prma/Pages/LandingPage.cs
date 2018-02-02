@@ -40,7 +40,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         public async Task<string> GetPageTitle()
         {
             await Task.Delay(6000);
-            return webdriver.FindElement(pageTitle).Text;
+            return webdriver.FindElement(pageTitle).Text.Trim();
         }
 
         public bool IsProjectCardVisible()
