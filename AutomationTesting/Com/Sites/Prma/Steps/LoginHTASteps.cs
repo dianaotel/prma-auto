@@ -1,5 +1,6 @@
 ﻿using AutomationTesting.Com.Configs;
 using AutomationTesting.Com.Sites.Prma.Pages;
+using NUnit.Framework;
 using System.Configuration;
 using TechTalk.SpecFlow;
 
@@ -45,6 +46,42 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             loginPage.InputUserName(userName);
             loginPage.InputUserPass(userPass);
             loginPage.ClickLogin();
+        }
+
+        [Given(@"I enter email address '(.*)'")]
+        public void GivenIEnterValidEmailAddress(string email)
+        {
+            loginPage.InputUserName(email);
+            loginPage.ClickLogin();
+        }
+
+        [Then(@"I should see the error message '(.*)' for invalid email")]
+        public void ThenIShouldSeeTheErrorMessage(string message)
+        {
+            string actualMessage = loginPage.GetInvalidEmailErrorMessage();
+            Assert.AreEqual(message, actualMessage);
+        }
+
+        [Then(@"I should see the error message '(.*)' for required password")]
+        public void ThenIShouldSeeTheErrorMessageForMissingPassword(string message)
+        {
+            string actualMessage = loginPage.GetRequiredPasswordErrorMessage();
+            Assert.AreEqual(message, actualMessage);
+        }
+
+        [Given(@"I enter invalid credentials '(.*)' '(.*)'")]
+        public void GivenIEnterInvalidCredentials(string email, string password)
+        {
+            loginPage.InputUserName(email);
+            loginPage.InputUserPass(password);
+            loginPage.ClickLogin();
+        }
+
+        [Then(@"I should see the error message '(.*)' for invalid credentials")]
+        public void ThenIShouldSeeTheErrorMessageForInvalidCredentials(string message)
+        {
+            string actualMessage = loginPage.GetInvalidLoginErrorMessage();
+            Assert.AreEqual(message, actualMessage);
         }
 
     }

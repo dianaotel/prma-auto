@@ -65,20 +65,50 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(1) Login to the new HTA", SourceLine=4)]
-        public virtual void _1LoginToTheNewHTA()
+        public virtual void _3VerifyErrorMessageOnMissingPassword(string valid_Email, string message, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(1) Login to the new HTA", ((string[])(null)));
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(3) verify error message on missing password", exampleTags);
+#line 21
 this.ScenarioSetup(scenarioInfo);
-#line 6
+#line 22
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
- testRunner.And("I enter valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 8
- testRunner.Then("I should see the landing page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+ testRunner.And(string.Format("I enter email address \'{0}\'", valid_Email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.Then(string.Format("I should see the error message \'{0}\' for required password", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(3) verify error message on missing password, valid_email@test.com", SourceLine=27)]
+        public virtual void _3VerifyErrorMessageOnMissingPassword_Valid_EmailTest_Com()
+        {
+#line 21
+this._3VerifyErrorMessageOnMissingPassword("valid_email@test.com", "Required", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _4VerifyErrorMessageOnInvalidLogin(string email, string password, string message, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify error message on invalid login", exampleTags);
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.And(string.Format("I enter invalid credentials \'{0}\' \'{1}\'", email, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.Then(string.Format("I should see the error message \'{0}\' for invalid credentials", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify error message on invalid login, invalid_credentials@test.com", SourceLine=37)]
+        public virtual void _4VerifyErrorMessageOnInvalidLogin_Invalid_CredentialsTest_Com()
+        {
+#line 31
+this._4VerifyErrorMessageOnInvalidLogin("invalid_credentials@test.com", "a", "Invalid Email or Password", ((string[])(null)));
+#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]
