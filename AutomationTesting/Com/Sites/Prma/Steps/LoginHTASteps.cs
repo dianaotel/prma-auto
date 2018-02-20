@@ -84,5 +84,10 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.AreEqual(message, actualMessage);
         }
 
+        [Given(@"I click on the Forgot your password link")]
+        public void GivenIClickOnTheForgotYourPasswordLink()
+        {
+            loginPage.ClickOnForgotPasswordLink();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@hta @login
 Feature: LoginHTA
-	I login to the new HTA
+	
 
 #Scenario: (1) Login to the new HTA
 #	Given I navigate to the login URL
@@ -18,14 +18,14 @@ Feature: LoginHTA
 #	| invalid_email | Must be a valid email |
 #
 #
-Scenario Outline: (3) verify error message on missing password
-	Given I navigate to the login URL
-	And I enter email address '<valid_email>'
-	Then I should see the error message '<message>' for required password
-
-Examples: 
-	| valid_email		   | message |
-	| valid_email@test.com | Required |
+#Scenario Outline: (3) verify error message on missing password
+#	Given I navigate to the login URL
+#	And I enter email address '<valid_email>'
+#	Then I should see the error message '<message>' for required password
+#
+#Examples: 
+#	| valid_email		   | message |
+#	| valid_email@test.com | Required |
 
 
 Scenario Outline: (4) Verify error message on invalid login 
@@ -36,5 +36,6 @@ Scenario Outline: (4) Verify error message on invalid login
 Examples: 
 	| email                        | password | message					  |
 	| invalid_credentials@test.com | a        | Invalid Email or Password |
+
 
 

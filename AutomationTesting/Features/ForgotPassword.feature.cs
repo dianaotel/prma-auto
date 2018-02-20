@@ -17,24 +17,20 @@ namespace AutomationTesting.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("LoginHTA", new string[] {
-            "hta",
-            "login"}, SourceFile="Features\\LoginHTA.feature", SourceLine=1)]
-    public partial class LoginHTAFeature
+    [TechTalk.SpecRun.FeatureAttribute("ForgotPassword", SourceFile="Features\\ForgotPassword.feature", SourceLine=0)]
+    public partial class ForgotPasswordFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "LoginHTA.feature"
+#line 1 "ForgotPassword.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LoginHTA", null, ProgrammingLanguage.CSharp, new string[] {
-                        "hta",
-                        "login"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ForgotPassword", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,26 +61,26 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _4VerifyErrorMessageOnInvalidLogin(string email, string password, string message, string[] exampleTags)
+        public virtual void _1VerifyTheForgotYourPasswordLink(string url, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify error message on invalid login", exampleTags);
-#line 31
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(1) Verify the Forgot your password link", exampleTags);
+#line 4
 this.ScenarioSetup(scenarioInfo);
-#line 32
+#line 5
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
- testRunner.And(string.Format("I enter invalid credentials \'{0}\' \'{1}\'", email, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
- testRunner.Then(string.Format("I should see the error message \'{0}\' for invalid credentials", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 6
+ testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 7
+ testRunner.Then(string.Format("I am redirected to the Forgot Password page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify error message on invalid login, invalid_credentials@test.com", SourceLine=37)]
-        public virtual void _4VerifyErrorMessageOnInvalidLogin_Invalid_CredentialsTest_Com()
+        [TechTalk.SpecRun.ScenarioAttribute("(1) Verify the Forgot your password link, forgot-password", SourceLine=10)]
+        public virtual void _1VerifyTheForgotYourPasswordLink_Forgot_Password()
         {
-#line 31
-this._4VerifyErrorMessageOnInvalidLogin("invalid_credentials@test.com", "a", "Invalid Email or Password", ((string[])(null)));
+#line 4
+this._1VerifyTheForgotYourPasswordLink("forgot-password", ((string[])(null)));
 #line hidden
         }
         

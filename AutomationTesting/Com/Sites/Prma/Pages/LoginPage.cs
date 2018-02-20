@@ -18,6 +18,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By userNameInput = By.CssSelector("input[name='email']");
         private By userPassInput = By.CssSelector("input[name='password']");
         private By loginButton = By.CssSelector("button");
+        private By forgotPasswordLink = By.CssSelector("a[href*='forgot-password']");
 
         // Error messages
         private By invalidEmailErrorMessage = By.CssSelector("span[class='error']");
@@ -61,6 +62,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             //WaitForElementToLoad(webdriver, invalidLoginErrorMessage, 20);
             WaitUntilElementVisible(webdriver, invalidLoginErrorMessage);
             return webdriver.FindElement(invalidLoginErrorMessage).Text;
+        }
+
+        public void ClickOnForgotPasswordLink()
+        {
+            webdriver.FindElement(forgotPasswordLink).Click();
         }
 
     }
