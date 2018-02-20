@@ -17,6 +17,9 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         // Inputs, buttons, links
         private By sendButton = By.CssSelector("button[type='submit']");
 
+        // Text
+        private By nonexistingEmailError = By.CssSelector("span[class='error ng-binding']");
+
 
         public string GetCurrentUrl()
         {
@@ -26,6 +29,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         public void ClickOnSendButton()
         {
             webdriver.FindElement(sendButton).Click();
+        }
+
+        public string GetErrorOnNonexistingEmail()
+        {
+            return webdriver.FindElement(nonexistingEmailError).Text;
         }
     }
 }

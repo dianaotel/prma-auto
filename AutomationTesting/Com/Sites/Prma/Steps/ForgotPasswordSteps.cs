@@ -22,7 +22,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             forgotPasswordPage = new ForgotPasswordPage(webdriver.GetDriver());
         }
 
-        [Then(@"I am redirected to the Forgot Password page '(.*)'")]
+        [Then(@"I am redirected to the page with URL '(.*)'")]
         public void ThenIAmRedirectedToTheForgotPasswordPage(string url)
         {
             string expectedUrl = ConfigurationManager.AppSettings["BaseUrl"] + url;
@@ -36,6 +36,11 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             forgotPasswordPage.ClickOnSendButton();
         }
 
+        [Then(@"I should see the error message '(.*)' for non-existing email")]
+        public void ThenIShouldSeeTheErrorMessageForNon_ExistingEmail(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
 
     }
 }

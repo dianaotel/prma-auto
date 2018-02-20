@@ -3,7 +3,7 @@ Feature: LandingPage
 
 Scenario Outline: (1) Check landing page information
 	Given I navigate to the login URL
-	And I enter valid prma admin credentials
+	And I login with valid prma admin credentials
 	Then I should see the landing page with title '<title>'
 	And I should see project cards
 
@@ -14,7 +14,7 @@ Examples:
 
 Scenario Outline: (2) Check the contents of a project card
 	Given I navigate to the login URL
-	And I enter valid client admin credentials
+	And I login with valid client admin credentials
 	Then I should see project cards
 	And the first project card contains '<title>', '<subtitle>', '<description>', '<req_summary>', '<req_met>', '<req_metKV>', '<req_partial>', '<req_partialKV>', '<req_not>', '<req_notKV>'
 

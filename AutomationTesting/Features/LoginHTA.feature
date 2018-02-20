@@ -2,10 +2,14 @@
 Feature: LoginHTA
 	
 
-Scenario: (1) Login to the new HTA
+Scenario Outline: (1) Login to the new HTA
 	Given I navigate to the login URL
 	And I login with valid prma admin credentials
-	Then I should see the landing page
+	Then I am redirected to the page with URL '<url>'
+
+Examples: 
+	| url |
+	|	  |
 
 
 Scenario Outline: (2) verify error message on invalid email address

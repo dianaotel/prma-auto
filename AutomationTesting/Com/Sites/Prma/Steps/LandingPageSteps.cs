@@ -23,14 +23,6 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             landingPage = new LandingPage(webdriver.GetDriver());
         }
 
-        [Then(@"I should see the landing page")]
-        public void ThenIShouldSeeTheLandingPage()
-        {
-            var baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
-            string actualUrl = landingPage.GetCurrentUrl();
-            Assert.AreEqual(baseUrl, actualUrl);
-        }
-
         [Then(@"I should see the landing page with title '(.*)'")]
         public async Task ThenIShouldSeeTheLandingPageTitle(string title)
         {

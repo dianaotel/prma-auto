@@ -3,7 +3,7 @@
 @prma @heatmap @ddt
 Scenario Outline: Verify total summary modal title
 	Given I navigate to the login URL
-	And I enter valid prma admin credentials
+	And I login with valid prma admin credentials
 	When I open the project '<project_title>'
 	And I navigate to the heatmap
 	When I click on the total summary cell
@@ -18,7 +18,7 @@ Examples:
 
 Scenario: Verify the colouring of the summary cell
 	Given I navigate to the login URL
-	And I enter valid prma admin credentials
+	And I login with valid prma admin credentials
 	When I open the project '<project_title>'
 	And I navigate to the heatmap
 	When I click on the total summary cell
