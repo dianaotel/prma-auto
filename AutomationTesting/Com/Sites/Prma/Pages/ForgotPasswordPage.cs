@@ -14,9 +14,18 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             webdriver = driver;
         }
 
+        // Inputs, buttons, links
+        private By sendButton = By.CssSelector("button[type='submit']");
+
+
         public string GetCurrentUrl()
         {
             return GetCurrentUrlA(webdriver);
+        }
+
+        public void ClickOnSendButton()
+        {
+            webdriver.FindElement(sendButton).Click();
         }
     }
 }

@@ -30,5 +30,12 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.AreEqual(expectedUrl, actualUrl);
         }
 
+        [Given(@"I click on the send button")]
+        public void GivenIClickOnTheSendButton()
+        {
+            forgotPasswordPage.ClickOnSendButton();
+        }
+
+
     }
 }

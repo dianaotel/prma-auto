@@ -26,7 +26,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             webdriver.GetDriver().Navigate().GoToUrl(baseUrl + "login");
         }
         
-        [Given(@"I enter valid prma admin credentials")]
+        [Given(@"I login with valid prma admin credentials")]
         public void GivenIEnterValidPrmaAdminCredentials()
         {
             var userName = ConfigurationManager.AppSettings["prmaAdminUser"];
@@ -37,7 +37,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             loginPage.ClickLogin();
         }
 
-        [Given(@"I enter valid client admin credentials")]
+        [Given(@"I login with valid client admin credentials")]
         public void GivenIEnterValidClientAdminCredentials()
         {
             var userName = ConfigurationManager.AppSettings["clientAdminUser"];
@@ -52,8 +52,14 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         public void GivenIEnterValidEmailAddress(string email)
         {
             loginPage.InputUserName(email);
+        }
+
+        [Given(@"I click on the login button")]
+        public void GivenIClickOnTheLoginButton()
+        {
             loginPage.ClickLogin();
         }
+
 
         [Then(@"I should see the error message '(.*)' for invalid email")]
         public void ThenIShouldSeeTheErrorMessage(string message)
@@ -74,7 +80,6 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         {
             loginPage.InputUserName(email);
             loginPage.InputUserPass(password);
-            loginPage.ClickLogin();
         }
 
         [Then(@"I should see the error message '(.*)' for invalid credentials")]
