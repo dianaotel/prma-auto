@@ -13,7 +13,6 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
     public class ForgotPasswordSteps
     {
         private CWebDriver webdriver;
-        LoginPage loginPage;
         ForgotPasswordPage forgotPasswordPage;
 
         public ForgotPasswordSteps(CWebDriver driver)
@@ -36,10 +35,25 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             forgotPasswordPage.ClickOnSendButton();
         }
 
-        [Then(@"I should see the error message '(.*)' for non-existing email")]
-        public void ThenIShouldSeeTheErrorMessageForNon_ExistingEmail(string p0)
+        [Then(@"I should see the error message '(.*)' for required email")]
+        public void ThenIShouldSeeTheErrorMessageForRequiredEmail(string message)
         {
-            ScenarioContext.Current.Pending();
+            string actualMessage = forgotPasswordPage.GetErrorOnEmptyEmail();
+            Assert.AreEqual(message, actualMessage);
+        }
+
+
+        [Then(@"I should see the error message '(.*)' for non-existing email")]
+        public void ThenIShouldSeeTheErrorMessageForNon_ExistingEmail(string message)
+        {
+            string actualMessage = forgotPasswordPage.GetErrorOnNonexistingEmail();
+            Assert.AreEqual(message, actualMessage);
+        }
+
+        [Given(@"I click on the Back to login link")]
+        public void GivenIClickOnTheBackToLoginLink()
+        {
+            forgotPasswordPage.ClickOnBackToLogin();
         }
 
     }

@@ -84,9 +84,9 @@ this._1VerifyTheForgotYourPasswordLink("forgot-password", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void _2VerifyErrorMessageOnInvalidEmailAddress(string invalid_Email, string message, string[] exampleTags)
+        public virtual void _2VerifyErrorMessageOnEmptyEmailField(string invalid_Email, string message, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Verify error message on invalid email address", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Verify error message on empty email field", exampleTags);
 #line 14
 this.ScenarioSetup(scenarioInfo);
 #line 15
@@ -94,75 +94,125 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And(string.Format("I enter email address \'{0}\'", invalid_Email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
  testRunner.And("I click on the send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
+#line 18
+ testRunner.Then(string.Format("I should see the error message \'{0}\' for required email", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(2) Verify error message on empty email field, invalid_email", SourceLine=21)]
+        public virtual void _2VerifyErrorMessageOnEmptyEmailField_Invalid_Email()
+        {
+#line 14
+this._2VerifyErrorMessageOnEmptyEmailField("invalid_email", "Required", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _3VerifyErrorMessageOnInvalidEmailAddress(string invalid_Email, string message, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(3) Verify error message on invalid email address", exampleTags);
+#line 25
+this.ScenarioSetup(scenarioInfo);
+#line 26
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
+ testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.And(string.Format("I enter email address \'{0}\'", invalid_Email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+ testRunner.And("I click on the send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
  testRunner.Then(string.Format("I should see the error message \'{0}\' for invalid email", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(2) Verify error message on invalid email address, invalid_email", SourceLine=22)]
-        public virtual void _2VerifyErrorMessageOnInvalidEmailAddress_Invalid_Email()
+        [TechTalk.SpecRun.ScenarioAttribute("(3) Verify error message on invalid email address, invalid_email", SourceLine=33)]
+        public virtual void _3VerifyErrorMessageOnInvalidEmailAddress_Invalid_Email()
         {
-#line 14
-this._2VerifyErrorMessageOnInvalidEmailAddress("invalid_email", "Must be a valid email", ((string[])(null)));
+#line 25
+this._3VerifyErrorMessageOnInvalidEmailAddress("invalid_email", "Must be a valid email", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void _3VerifyErrorMessageOnValidNon_ExistingEmailAddress(string nonexisting_Email, string message, string[] exampleTags)
+        public virtual void _4VerifyErrorMessageOnValidNon_ExistingEmailAddress(string nonexisting_Email, string message, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(3) Verify error message on valid non-existing email address", exampleTags);
-#line 26
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify error message on valid non-existing email address", exampleTags);
+#line 37
 this.ScenarioSetup(scenarioInfo);
-#line 27
+#line 38
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
+#line 39
  testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 40
  testRunner.And(string.Format("I enter email address \'{0}\'", nonexisting_Email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
+#line 41
  testRunner.And("I click on the send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+#line 42
  testRunner.Then(string.Format("I should see the error message \'{0}\' for non-existing email", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(3) Verify error message on valid non-existing email address, nonexisting_email@t" +
-            "est.com", SourceLine=34)]
-        public virtual void _3VerifyErrorMessageOnValidNon_ExistingEmailAddress_Nonexisting_EmailTest_Com()
+        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify error message on valid non-existing email address, nonexisting_email@t" +
+            "est.com", SourceLine=45)]
+        public virtual void _4VerifyErrorMessageOnValidNon_ExistingEmailAddress_Nonexisting_EmailTest_Com()
         {
-#line 26
-this._3VerifyErrorMessageOnValidNon_ExistingEmailAddress("nonexisting_email@test.com", "Password cannot be reset for this account", ((string[])(null)));
+#line 37
+this._4VerifyErrorMessageOnValidNon_ExistingEmailAddress("nonexisting_email@test.com", "Password cannot be reset for this account", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void _4VerifyRedirectOnValidExistingEmailAddress(string existing_Email, string url, string[] exampleTags)
+        public virtual void _5VerifyRedirectOnValidExistingEmailAddress(string existing_Email, string url, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify redirect on valid existing email address", exampleTags);
-#line 38
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(5) Verify redirect on valid existing email address", exampleTags);
+#line 49
 this.ScenarioSetup(scenarioInfo);
-#line 39
+#line 50
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 40
+#line 51
  testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 52
  testRunner.And(string.Format("I enter email address \'{0}\'", existing_Email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
+#line 53
  testRunner.And("I click on the send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
+#line 54
  testRunner.Then(string.Format("I am redirected to the page with URL \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify redirect on valid existing email address, diana.otel@evozon.com", SourceLine=46)]
-        public virtual void _4VerifyRedirectOnValidExistingEmailAddress_Diana_OtelEvozon_Com()
+        [TechTalk.SpecRun.ScenarioAttribute("(5) Verify redirect on valid existing email address, diana.otel@evozon.com", SourceLine=57)]
+        public virtual void _5VerifyRedirectOnValidExistingEmailAddress_Diana_OtelEvozon_Com()
         {
-#line 38
-this._4VerifyRedirectOnValidExistingEmailAddress("diana.otel@evozon.com", "forgot-password-success", ((string[])(null)));
+#line 49
+this._5VerifyRedirectOnValidExistingEmailAddress("diana.otel@evozon.com", "forgot-password-success", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _6VerifyTheBackToLoginLink(string url, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(6) Verify the Back to login link", exampleTags);
+#line 61
+this.ScenarioSetup(scenarioInfo);
+#line 62
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 63
+ testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+ testRunner.And("I click on the Back to login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+ testRunner.Then(string.Format("I am redirected to the page with URL \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(6) Verify the Back to login link, login", SourceLine=68)]
+        public virtual void _6VerifyTheBackToLoginLink_Login()
+        {
+#line 61
+this._6VerifyTheBackToLoginLink("login", ((string[])(null)));
 #line hidden
         }
         
