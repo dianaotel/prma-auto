@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
+using System.Configuration;
 
 namespace AutomationTesting.Com.Sites.Prma.Steps
 {
@@ -29,6 +30,69 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             heatmapPage.ClickOnSidemenuButton();
         }
 
+        [Then(@"I should see the heatmap page with URL '(.*)' and title '(.*)'")]
+        public void ThenIShouldSeeTheHeatmapPageWithUlrAndTitle(string url, string title)
+        {
+            string expectedUrl = ConfigurationManager.AppSettings["baseUrl"] + url;
+            string actualUrl = heatmapPage.GetCurrentUrl();
+            Assert.AreEqual(expectedUrl, actualUrl);
+
+            string actualPageTitle = heatmapPage.GetPageTitle();
+            Assert.AreEqual(title, actualPageTitle);
+        }
+
+        [When(@"I click on the total summary cell")]
+        public void WhenIClickOnTheTotalSummaryCell()
+        {
+            heatmapPage.ClickOnTotalSummaryCell();
+        }
+
+        [Then(@"a modal with title '(.*)' appears")]
+        public void ThenAModalWithTitleAppears(string title)
+        {
+            bool isDisplayed = heatmapPage.IsModalDisplayed();
+            Assert.True(isDisplayed);
+
+            string actualTitle = heatmapPage.GetModalTitle();
+            Assert.AreEqual(title, actualTitle);
+        }
+
+        [Then(@"the modal appears")]
+        public void ThenTheModalAppears()
+        {
+            bool isDisplayed = heatmapPage.IsModalDisplayed();
+            Assert.True(isDisplayed);
+        }
+
+        [When(@"I click on the Close button")]
+        public void WhenIClickOnTheCloseButton()
+        {
+            heatmapPage.ClickOnModalCloseButton();
+        }
+
+        [When(@"I click on the X button")]
+        public void WhenIClickOnTheXButton()
+        {
+            heatmapPage.ClickOnModalXButton();
+        }
+
+        [Then(@"the modal disappears")]
+        public void ThenTheModalDisappears()
+        {
+            bool isDisplayed = heatmapPage.IsModalDisplayed();
+            Assert.False(isDisplayed);
+        }
+
+        [Then(@"the number of all requirements and KVs is correct")]
+        public void ThenTheNumberOfAllRequirementsAndKVsIsCorrect(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
+
+
         [When(@"I select a coloured cell '(.*)'")]
         public void WhenISelectAColouredCell(string requirementsNumber)
         {
@@ -39,7 +103,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         public void WhenISelectAColouredCellWithColors(int colorCount)
         {
             Boolean isFound = heatmapPage.ClickOnColouredCell(colorCount);
-            Assert.IsTrue(isFound);
+            Assert.True(isFound);
         }
         
         [Then(@"I check the number of each requirement")]
@@ -66,20 +130,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             }
         }
 
-        [When(@"I click on the total summary cell")]
-        public void WhenIClickOnTheTotalSummaryCell()
-        {
-            heatmapPage.ClickOnTotalSummaryCell();
-        }
-
-        [Then(@"a modal with title '(.*)' appears")]
-        public void ThenAModalWithTitleAppears(string title)
-        {
-            bool isDisplayed = heatmapPage.IsModalDisplayed();
-            Assert.True(isDisplayed);
-            string actualTitle = heatmapPage.GetModalTitle();
-            Assert.AreEqual(title, actualTitle);
-        }
+        
 
 
     }

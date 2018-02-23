@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using AutomationTesting.Com.Tools;
 using System;
+using System.Threading;
 
 namespace AutomationTesting.Com.Sites.Prma.Pages
 {
@@ -25,6 +26,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 
         public string GetCurrentUrl()
         {
+            WaitForPageToLoad(webdriver);
             return GetCurrentUrlA(webdriver);
         }
 

@@ -45,4 +45,13 @@ Examples:
 	| invalid_credentials@test.com | a        | Invalid Email or Password |
 
 
+Scenario Outline: (5) Verify the Forgot your password link
+	Given I navigate to the login URL
+	And I click on the Forgot your password link
+	Then I am redirected to the page with URL '<url>'
+
+Examples: 
+	| url			  |
+	| forgot-password |
+
 

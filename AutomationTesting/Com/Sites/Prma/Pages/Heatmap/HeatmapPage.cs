@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace AutomationTesting.Com.Sites.Prma.Pages
 {
-    class HeatmapPage
+    class HeatmapPage : AbstractPage
     {
         private IWebDriver webdriver;
 
@@ -20,21 +20,38 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 
         private By sidemenuButton = By.CssSelector("a[ng-href='/heatmap']");
 
-        // cell locators
+        // Header locators
+        private By pageTitle = By.CssSelector(".page-header .rd-title");
+        
+        // Cell locators
         private By totalSummaryCell = By.CssSelector(".total-summary-cell .cell");
         private By cellListLocator = By.CssSelector(".data-cells span.cell");
-        private By statusElementsLocator = By.CssSelector("div[class*='status']");
+        private By statusElements = By.CssSelector("div[class*='status']");
 
-        //modal locators
+        // Modal locators
         private By modal = By.CssSelector(".modal-heatmap-cell");
         private By modalTitle = By.CssSelector(".modal-heatmap-cell h3");
+        private By modalCloseButton = By.CssSelector(".modal-heatmap-cell rd-app-button[text='Close'] .rd-app-button");
+        private By modalXButton = By.CssSelector(".ngdialog-close");
         
-        // cell tooltip locators
-        private By cellTooltipLocator = By.CssSelector(".heatmap-data-cell-tooltip");
-        private By tooltipHeaderLocator = By.CssSelector(".heatmap-data-cell-tooltip .header");
+        // Cell tooltip locators
+        private By cellTooltip = By.CssSelector(".heatmap-data-cell-tooltip");
+        private By tooltipHeader = By.CssSelector(".heatmap-data-cell-tooltip .header");
+
+        public string GetCurrentUrl()
+        {
+            return GetCurrentUrlA(webdriver);
+        }
+
+        public string GetPageTitle()
+        {
+            WaitForPageToLoad(webdriver);
+            return webdriver.FindElement(pageTitle).Text.Trim();
+        }
 
         public void ClickOnSidemenuButton()
         {
+            WaitForPageToLoad(webdriver);
             webdriver.FindElement(sidemenuButton).Click();
         }
 
@@ -59,6 +76,23 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         {
             return webdriver.FindElement(modalTitle).Text.Trim();
         }
+
+        public void ClickOnModalCloseButton()
+        {
+            webdriver.FindElement(modalCloseButton).Click();
+        }
+
+        public void ClickOnModalXButton()
+        {
+            IWebElement xButton = webdriver.FindElement(modalXButton);
+            ClickOnElementJS(webdriver, xButton);
+        }
+
+        public string
+
+
+
+
 
         public void GrabCellsColorsData()
         {
@@ -103,7 +137,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 
             new WebDriverWait(webdriver, TimeSpan.FromSeconds(Constants.WAIT_TIME_DEFAULT)).Until(ExpectedConditions.ElementToBeClickable(cell));
 
-            IList<IWebElement> statusAreas = cell.FindElements(statusElementsLocator);
+            IList<IWebElement> statusAreas = cell.FindElements(statusElements);
 
             foreach(IWebElement color in statusAreas)
             {

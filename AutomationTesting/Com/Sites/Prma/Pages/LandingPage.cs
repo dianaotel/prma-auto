@@ -55,6 +55,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             }
         }
 
+        public string GetProjectName(int index)
+        {
+            return webdriver.FindElement(By.CssSelector(".project-card:nth-child(" + index + ") .project-card-header .title .ng-binding:nth-child(1)")).Text;
+        }
+
         public ProjectCardModel GetCardDetails()
         {
             WaitForPageToLoad(webdriver);

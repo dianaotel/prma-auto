@@ -21,21 +21,26 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             wait.Until(driver1 => ((IJavaScriptExecutor)webdriver).ExecuteScript("return document.readyState").Equals("complete"));
         }
 
-        public void WaitForElementToLoad(IWebDriver webdriver, By by, int timeoutInSeconds)
-        {
-            if (timeoutInSeconds > 0)
-            {
-                WebDriverWait wait = new WebDriverWait(webdriver, TimeSpan.FromSeconds(timeoutInSeconds));
-                wait.Until(ExpectedConditions.ElementIsVisible(by));
-            }
-        }
-
-        public IWebElement WaitUntilElementVisible(IWebDriver webdriver, By elementLocator, int timeout = 10)
+        public void WaitUntilElementVisible(IWebDriver webdriver, By elementLocator)
         {
             try
             {
-                var wait = new WebDriverWait(webdriver, TimeSpan.FromSeconds(timeout));
-                return wait.Until(ExpectedConditions.ElementIsVisible(elementLocator));
+                WebDriverWait wait = new WebDriverWait(webdriver, TimeSpan.FromSeconds(10.00));
+                wait.Until(ExpectedConditions.ElementIsVisible(elementLocator));
+            }
+            catch (NoSuchElementException)
+            {
+                Console.WriteLine("Element with locator: '" + elementLocator + "' was not found.");
+                throw;
+            }
+        }
+
+        public void WaitUntilElementDisappears(IWebDriver webdriver, By elementLocator)
+        {
+            try
+            {
+                IWait<IWebDriver> wait = new WebDriverWait(webdriver, TimeSpan.FromSeconds(30.00));
+                wait.Until(driver => !driver.FindElement(elementLocator).Displayed);
             }
             catch (NoSuchElementException)
             {

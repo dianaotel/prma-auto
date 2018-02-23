@@ -26,6 +26,10 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         [Then(@"I should see the landing page with title '(.*)'")]
         public async Task ThenIShouldSeeTheLandingPageTitle(string title)
         {
+            string expectedUrl = ConfigurationManager.AppSettings["baseUrl"];
+            string actualUrl = landingPage.GetCurrentUrl();
+            Assert.AreEqual(expectedUrl, actualUrl);
+
             string actualPageTitle = await landingPage.GetPageTitle();
             Assert.AreEqual(title, actualPageTitle);
         }
@@ -34,7 +38,17 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         public void ThenIShouldSeeProjectCards()
         {
             bool isVisible = landingPage.IsProjectCardVisible();
-            Assert.AreEqual(true, isVisible);
+            Assert.True(isVisible);
+        }
+
+        [Then(@"the projects displayed are correct '(.*)' '(.*)'")]
+        public void ThenIShouldSeeTheCorrectProjectCardsAnd(string project1, string project2)
+        {
+            string actualProject1 = landingPage.GetProjectName(1);
+            Assert.AreEqual(project1, actualProject1);
+
+            string actualProject2 = landingPage.GetProjectName(2);
+            Assert.AreEqual(project2, actualProject2);
         }
 
         [Then(@"the first project card contains '(.*)', '(.*)', '(.*)', '(.*)', '(.*)', '(.*)', '(.*)', '(.*)', '(.*)', '(.*)'")]

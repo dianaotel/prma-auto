@@ -163,6 +163,29 @@ this._4VerifyErrorMessageOnInvalidLogin("invalid_credentials@test.com", "a", "In
 #line hidden
         }
         
+        public virtual void _5VerifyTheForgotYourPasswordLink(string url, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(5) Verify the Forgot your password link", exampleTags);
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 50
+ testRunner.And("I click on the Forgot your password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.Then(string.Format("I am redirected to the page with URL \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(5) Verify the Forgot your password link, forgot-password", SourceLine=54)]
+        public virtual void _5VerifyTheForgotYourPasswordLink_Forgot_Password()
+        {
+#line 48
+this._5VerifyTheForgotYourPasswordLink("forgot-password", ((string[])(null)));
+#line hidden
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

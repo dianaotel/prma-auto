@@ -17,7 +17,7 @@ namespace AutomationTesting.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Heatmap", SourceFile="Features\\Heatmap.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Heatmap", Description="\tTesting the heatmap on a project\r\n\tThat is set on detailed (requirements) view", SourceFile="Features\\Heatmap.feature", SourceLine=0)]
     public partial class HeatmapFeature
     {
         
@@ -30,7 +30,7 @@ namespace AutomationTesting.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Heatmap", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Heatmap", "\tTesting the heatmap on a project\r\n\tThat is set on detailed (requirements) view", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -61,66 +61,80 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void VerifyTotalSummaryModalTitle(string project_Title, string modal_Title, string[] exampleTags)
+        public virtual void _2VerifyTheBredcrumbs(string breadcrumbs, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "prma",
-                    "heatmap",
-                    "ddt"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify total summary modal title", @__tags);
-#line 4
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Verify the bredcrumbs", exampleTags);
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 5
+#line 18
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 6
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 7
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 8
- testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.When("I click on the total summary cell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.Then(string.Format("a modal with title \'{0}\' appears", modal_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Verify total summary modal title, ABBV-085 in SCCHN TPP assessment", new string[] {
-                "prma",
-                "heatmap",
-                "ddt"}, SourceLine=13)]
-        public virtual void VerifyTotalSummaryModalTitle_ABBV_085InSCCHNTPPAssessment()
-        {
-#line 4
-this.VerifyTotalSummaryModalTitle("ABBV-085 in SCCHN TPP assessment", "All domains, all agencies", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Verify the colouring of the summary cell", SourceLine=18)]
-        public virtual void VerifyTheColouringOfTheSummaryCell()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the colouring of the summary cell", ((string[])(null)));
 #line 19
-this.ScenarioSetup(scenarioInfo);
-#line 20
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
  testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
+#line 20
  testRunner.When("I open the project \'<project_title>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
+#line 21
  testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
- testRunner.When("I click on the total summary cell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
- testRunner.Then("I check the number of each requirement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.Then(string.Format("the breadcrumbs \'{0}\' are correct", breadcrumbs), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(2) Verify the bredcrumbs, ", SourceLine=25)]
+        public virtual void _2VerifyTheBredcrumbs_()
+        {
+#line 17
+this._2VerifyTheBredcrumbs("", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _5VerifyTheNumberOfAllRequirementsAndKVsInModal(string project_Title, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(5) Verify the number of all requirements and KVs in modal", exampleTags);
+#line 74
+this.ScenarioSetup(scenarioInfo);
+#line 75
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 76
+ testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+ testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 78
+ testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.When("I click on the total summary cell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "total_req",
+                        "total_kv",
+                        "not_met_req",
+                        "not_met_kv",
+                        "partial_req",
+                        "partial_kv",
+                        "met_req",
+                        "met_kv"});
+            table1.AddRow(new string[] {
+                        "356",
+                        "154",
+                        "56",
+                        "56",
+                        "219",
+                        "98",
+                        "78",
+                        "0"});
+#line 80
+ testRunner.Then("the number of all requirements and KVs is correct", ((string)(null)), table1, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(5) Verify the number of all requirements and KVs in modal, ABBV-085 in SCCHN TPP" +
+            " assessment", SourceLine=86)]
+        public virtual void _5VerifyTheNumberOfAllRequirementsAndKVsInModal_ABBV_085InSCCHNTPPAssessment()
+        {
+#line 74
+this._5VerifyTheNumberOfAllRequirementsAndKVsInModal("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
+#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]
