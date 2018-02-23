@@ -14,19 +14,19 @@
 #	| ABBV-085 in SCCHN TPP assessment | heatmap | Heatmap |
 #
 #
-Scenario Outline: (2) Verify the bredcrumbs
-	Given I navigate to the login URL
-	And I login with valid prma admin credentials
-	When I open the project '<project_title>'
-	And I navigate to the heatmap
-	Then the breadcrumbs '<breadcrumbs>' are correct
-
-Examples: 
-	| breadcrumbs |
-	|             |
-
-
-#Scenario Outline: (2) Verify total summary modal open and title
+#Scenario Outline: (2) Verify the breadcrumbs
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then the breadcrumbs '<breadcrumbs>' are correct
+#
+#Examples: 
+#	| project_title		   | breadcrumbs							  |
+#	| Automation Project 1 | Automation Project 1 > Project Details > |
+#
+#
+#Scenario Outline: (3) Verify total summary modal open and title
 #	Given I navigate to the login URL
 #	And I login with valid prma admin credentials
 #	When I open the project '<project_title>'
@@ -40,7 +40,7 @@ Examples:
 #	#| Automation Project 1             | All domains, all agencies |
 #
 #
-#Scenario Outline: (3) Verify the total summary modal Close button
+#Scenario Outline: (4) Verify the total summary modal Close button
 #	Given I navigate to the login URL
 #	And I login with valid prma admin credentials
 #	When I open the project '<project_title>'
@@ -55,7 +55,7 @@ Examples:
 #	| ABBV-085 in SCCHN TPP assessment |
 #
 #
-#Scenario Outline: (4) Verify the total summary modal X button
+#Scenario Outline: (5) Verify the total summary modal X button
 #	Given I navigate to the login URL
 #	And I login with valid prma admin credentials
 #	When I open the project '<project_title>'
@@ -71,7 +71,7 @@ Examples:
 #	| ABBV-085 in SCCHN TPP assessment |
 
 
-Scenario Outline: (5) Verify the number of all requirements and KVs in modal
+Scenario Outline: (6) Verify the number of all requirements and KVs in modal
 	Given I navigate to the login URL
 	And I login with valid prma admin credentials
 	When I open the project '<project_title>'

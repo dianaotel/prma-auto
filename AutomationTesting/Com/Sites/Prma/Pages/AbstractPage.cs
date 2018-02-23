@@ -10,9 +10,18 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 {
     class AbstractPage
     {
+        // Locators
+        private By breadcrumbs = By.CssSelector(".left .rd-breadcrumbs");
+
+
         public string GetCurrentUrlA(IWebDriver webdriver)
         {
             return webdriver.Url;
+        }
+
+        public string GetBreadcrumbsA(IWebDriver webdriver)
+        {
+            return webdriver.FindElement(breadcrumbs).Text;
         }
 
         public void WaitForPageToLoad(IWebDriver webdriver)

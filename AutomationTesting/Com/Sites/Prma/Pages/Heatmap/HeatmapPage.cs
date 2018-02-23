@@ -38,6 +38,12 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By cellTooltip = By.CssSelector(".heatmap-data-cell-tooltip");
         private By tooltipHeader = By.CssSelector(".heatmap-data-cell-tooltip .header");
 
+        public void ClickOnSidemenuButton()
+        {
+            WaitForPageToLoad(webdriver);
+            webdriver.FindElement(sidemenuButton).Click();
+        }
+
         public string GetCurrentUrl()
         {
             return GetCurrentUrlA(webdriver);
@@ -49,10 +55,9 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             return webdriver.FindElement(pageTitle).Text.Trim();
         }
 
-        public void ClickOnSidemenuButton()
+        public string GetBreadcrumbs()
         {
-            WaitForPageToLoad(webdriver);
-            webdriver.FindElement(sidemenuButton).Click();
+            return GetBreadcrumbsA(webdriver);
         }
 
         public void ClickOnTotalSummaryCell()
@@ -87,9 +92,6 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             IWebElement xButton = webdriver.FindElement(modalXButton);
             ClickOnElementJS(webdriver, xButton);
         }
-
-        public string
-
 
 
 

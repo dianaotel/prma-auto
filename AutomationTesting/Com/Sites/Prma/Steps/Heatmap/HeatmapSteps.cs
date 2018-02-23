@@ -41,6 +41,13 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.AreEqual(title, actualPageTitle);
         }
 
+        [Then(@"the breadcrumbs '(.*)' are correct")]
+        public void ThenTheBreadcrumbsAreCorrect(string breadcrumbs)
+        {
+            string actualBreadcrumbs = heatmapPage.GetBreadcrumbs();
+            Assert.AreEqual(breadcrumbs, actualBreadcrumbs);
+        }
+
         [When(@"I click on the total summary cell")]
         public void WhenIClickOnTheTotalSummaryCell()
         {
@@ -105,14 +112,14 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Boolean isFound = heatmapPage.ClickOnColouredCell(colorCount);
             Assert.True(isFound);
         }
-        
+
         [Then(@"I check the number of each requirement")]
         public void ThenICheckTheNumberOfEachRequirement()
         {
-           heatmapTooltipPage = new HeatmapTooltipPage(webdriver.GetDriver());
-           IList<HeatmapTooltipModel> data = heatmapTooltipPage.GrabTooltipData();
+            heatmapTooltipPage = new HeatmapTooltipPage(webdriver.GetDriver());
+            IList<HeatmapTooltipModel> data = heatmapTooltipPage.GrabTooltipData();
 
-            foreach(HeatmapTooltipModel dataNow in data)
+            foreach (HeatmapTooltipModel dataNow in data)
             {
                 Console.WriteLine("ItemData: {0}", dataNow.ToStr());
 
@@ -130,7 +137,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             }
         }
 
-        
+
 
 
     }

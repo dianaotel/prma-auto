@@ -61,36 +61,9 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _2VerifyTheBredcrumbs(string breadcrumbs, string[] exampleTags)
+        public virtual void _6VerifyTheNumberOfAllRequirementsAndKVsInModal(string project_Title, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Verify the bredcrumbs", exampleTags);
-#line 17
-this.ScenarioSetup(scenarioInfo);
-#line 18
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 19
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.When("I open the project \'<project_title>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
- testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
- testRunner.Then(string.Format("the breadcrumbs \'{0}\' are correct", breadcrumbs), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(2) Verify the bredcrumbs, ", SourceLine=25)]
-        public virtual void _2VerifyTheBredcrumbs_()
-        {
-#line 17
-this._2VerifyTheBredcrumbs("", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void _5VerifyTheNumberOfAllRequirementsAndKVsInModal(string project_Title, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(5) Verify the number of all requirements and KVs in modal", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(6) Verify the number of all requirements and KVs in modal", exampleTags);
 #line 74
 this.ScenarioSetup(scenarioInfo);
 #line 75
@@ -128,12 +101,12 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(5) Verify the number of all requirements and KVs in modal, ABBV-085 in SCCHN TPP" +
+        [TechTalk.SpecRun.ScenarioAttribute("(6) Verify the number of all requirements and KVs in modal, ABBV-085 in SCCHN TPP" +
             " assessment", SourceLine=86)]
-        public virtual void _5VerifyTheNumberOfAllRequirementsAndKVsInModal_ABBV_085InSCCHNTPPAssessment()
+        public virtual void _6VerifyTheNumberOfAllRequirementsAndKVsInModal_ABBV_085InSCCHNTPPAssessment()
         {
 #line 74
-this._5VerifyTheNumberOfAllRequirementsAndKVsInModal("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
+this._6VerifyTheNumberOfAllRequirementsAndKVsInModal("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
 #line hidden
         }
         
