@@ -61,52 +61,34 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _6VerifyTheNumberOfAllRequirementsAndKVsInModal(string project_Title, string[] exampleTags)
+        public virtual void _11VerifyTheAgencyColumnsAreCorrect(string project_Title, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(6) Verify the number of all requirements and KVs in modal", exampleTags);
-#line 74
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(11) Verify the agency columns are correct", exampleTags);
+#line 151
 this.ScenarioSetup(scenarioInfo);
-#line 75
+#line 152
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 76
+#line 153
  testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 77
+#line 154
  testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 78
+#line 155
  testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 79
- testRunner.When("I click on the total summary cell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "total_req",
-                        "total_kv",
-                        "not_met_req",
-                        "not_met_kv",
-                        "partial_req",
-                        "partial_kv",
-                        "met_req",
-                        "met_kv"});
-            table1.AddRow(new string[] {
-                        "356",
-                        "154",
-                        "56",
-                        "56",
-                        "219",
-                        "98",
-                        "78",
-                        "0"});
-#line 80
- testRunner.Then("the number of all requirements and KVs is correct", ((string)(null)), table1, "Then ");
+#line 156
+ testRunner.And("I save the number of agencies on the heatmap in a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
+ testRunner.When("I open the heatmap Filter by Agency drop-down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 158
+ testRunner.Then("I check the number of agencies in the drop-down is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(6) Verify the number of all requirements and KVs in modal, ABBV-085 in SCCHN TPP" +
-            " assessment", SourceLine=86)]
-        public virtual void _6VerifyTheNumberOfAllRequirementsAndKVsInModal_ABBV_085InSCCHNTPPAssessment()
+        [TechTalk.SpecRun.ScenarioAttribute("(11) Verify the agency columns are correct, ABBV-085 in SCCHN TPP assessment", SourceLine=161)]
+        public virtual void _11VerifyTheAgencyColumnsAreCorrect_ABBV_085InSCCHNTPPAssessment()
         {
-#line 74
-this._6VerifyTheNumberOfAllRequirementsAndKVsInModal("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
+#line 151
+this._11VerifyTheAgencyColumnsAreCorrect("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
 #line hidden
         }
         

@@ -69,22 +69,112 @@
 #Examples: 
 #	| project_title                    |
 #	| ABBV-085 in SCCHN TPP assessment |
+#
+#Scenario Outline: (6) Verify the total summary modal X button
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	When I click on the total summary cell
+#	Then the modal appears
+#	When I click on the View requirements button
+#	Then I am redirected to the requirements page
+#	
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
 
 
-Scenario Outline: (6) Verify the number of all requirements and KVs in modal
+#Scenario Outline: (7) Verify the View requirements button in modal
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	When I click on the total summary cell
+#	Then the number of all requirements and KVs is correct 
+#	| total_req | total_kv | not_met_req | not_met_kv | partial_req | partial_kv | met_req | met_kv |
+#	| 356       | 154      | 56          | 56         | 219         | 98         | 78      | 0      |
+#	
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (8) Verify the total number of requirements and KVs in page and modal
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then the total number of requirements and KVs on the page is saved in file
+#	When I click on the total summary cell
+#	Then the total number of requirements and KVs in modal is correct 
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (9) Verify the links of total requirements in modal
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then the total number of requirements and KVs on the page is saved in file
+#	When I click on the total summary cell
+#	And I click on the total requirements link
+#	Then I am redirected to the requirements page
+#	And the Requirements page title contains the total number of requirements
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (10) Verify the links of total KVs in modal
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then the total number of requirements and KVs on the page is saved in file
+#	When I click on the total summary cell
+#	And I click on the total KVs link
+#	Then I am redirected to the requirements page
+#	And the Requirements page title contains the total number of KVs
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
+
+
+Scenario Outline: (11) Verify the agency columns are correct
 	Given I navigate to the login URL
 	And I login with valid prma admin credentials
 	When I open the project '<project_title>'
 	And I navigate to the heatmap
-	When I click on the total summary cell
-	Then the number of all requirements and KVs is correct 
-	| total_req | total_kv | not_met_req | not_met_kv | partial_req | partial_kv | met_req | met_kv |
-	| 356       | 154      | 56          | 56         | 219         | 98         | 78      | 0      |
-	
+	And I save the number of agencies on the heatmap in a file 
+	When I open the heatmap Filter by Agency drop-down
+	Then I check the number of agencies in the drop-down is correct
 
 Examples: 
 	| project_title                    |
 	| ABBV-085 in SCCHN TPP assessment |
+
+
+#Scenario Outline: (12) Verify the Agency filter uncheck functionality
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then I see agency columns 
+#	When I open the heatmap Filter by Agency drop-down
+#	And I select the Uncheck all option
+#	Then all agency columns disappear
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
 
 
 #Scenario: Verify the colouring of the summary cell
@@ -93,7 +183,7 @@ Examples:
 #	When I open the project '<project_title>'
 #	And I navigate to the heatmap
 #	When I click on the total summary cell
-#	Then I check the number of each requirement 
+#	Then I check the number of each requirement type
 #
 #Examples: 
 #	| project_title                    |

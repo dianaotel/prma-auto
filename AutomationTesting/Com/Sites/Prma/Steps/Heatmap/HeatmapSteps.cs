@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 using System.Configuration;
+using System.IO;
+using System.Linq;
 
 namespace AutomationTesting.Com.Sites.Prma.Steps
 {
@@ -48,12 +50,20 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.AreEqual(breadcrumbs, actualBreadcrumbs);
         }
 
+        [Then(@"the total number of requirements and KVs on the page is saved in file")]
+        public void ThenTheTotalNumberOfRequirementsAndKVsIsSavedInFile()
+        {
+            heatmapPage.WriteInFileTotalReqsAndKVsOnPage();
+        }
+
         [When(@"I click on the total summary cell")]
         public void WhenIClickOnTheTotalSummaryCell()
         {
             heatmapPage.ClickOnTotalSummaryCell();
         }
 
+
+        /********** Requirements modal steps ******************************************/
         [Then(@"a modal with title '(.*)' appears")]
         public void ThenAModalWithTitleAppears(string title)
         {
@@ -90,11 +100,97 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.False(isDisplayed);
         }
 
-        [Then(@"the number of all requirements and KVs is correct")]
-        public void ThenTheNumberOfAllRequirementsAndKVsIsCorrect(Table table)
+        [When(@"I click on the View requirements button")]
+        public void WhenIClickOnTheViewRequirementsButton()
+        {
+            heatmapPage.ClickOnModalViewReqButton();
+        }
+
+        [Then(@"the total number of requirements and KVs in modal is correct")]
+        public void ThenTheTotalNumberOfRequirementsAndKVsInModalIsCorrect()
+        {
+            var lines = File.ReadLines(@"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\HeatmapModal.txt");
+            string reqsInPage = lines.Skip(0).Take(1).First();
+            string kvsInPage = lines.Skip(1).Take(1).First();
+
+            HeatmapModalModel model = heatmapPage.GetModalInformation();
+            Assert.AreEqual(reqsInPage, model.TotalReqs);
+            Assert.AreEqual(kvsInPage, model.TotalKVs);
+        }
+
+        [When(@"I click on the total requirements link")]
+        public void WhenIClickOnTheTotalRequirementsLink()
+        {
+            heatmapPage.ClickOnModalTotalReqsLink();
+        }
+
+        [When(@"I click on the total KVs link")]
+        public void WhenIClickOnTheTotalKVsLink()
+        {
+            heatmapPage.ClickOnModalTotalKVsLink();
+        }
+        /************************************************************************/
+
+        /********** Filters steps ******************************************/
+
+        [When(@"I save the number of agencies on the heatmap in a file")]
+        public void WhenISaveTheNumberOfAgenciesOnTheHeatmapInAFile()
+        {
+            heatmapPage.WriteInFileNumberOfAgenciesOnHeatmap();
+        }
+
+        [When(@"I open the heatmap Filter by Agency drop-down")]
+        public void WhenIOpenTheHeatmapFilterByAgencyDrop_Down()
+        {
+            heatmapPage.ClickOnAgencyDropdown();
+        }
+
+        [Then(@"I check the number of agencies in the drop-down is correct")]
+        public void ThenICheckTheNumberOfAgenciesInTheDrop_Down()
+        {
+            string dropdownAgencies = heatmapPage.GetNumberOfAgenciesInDropdown();
+            bool isNumberCorrect = false;
+
+            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\HeatmapModal.txt";
+            var lines = File.ReadLines(path);
+            string heatmapAgencies = lines.Skip(0).Take(1).First();
+
+            if (heatmapAgencies.Equals(dropdownAgencies))
+            {
+                isNumberCorrect = true;
+            }
+
+            Assert.IsTrue(isNumberCorrect);
+        }
+
+        [When(@"I select the Uncheck all option")]
+        public void ThenISelectTheUncheckAllOption()
         {
             ScenarioContext.Current.Pending();
         }
+
+        [Then(@"all agency columns disappear")]
+        public void ThenAllAgencyColumnsDisappear()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

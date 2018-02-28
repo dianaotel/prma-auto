@@ -120,13 +120,16 @@
     <Compile Include="Com\Configs\CWebDriver.cs" />
     <Compile Include="Com\Configs\Legacy\CWebDriver302.cs" />
     <Compile Include="Com\Configs\Legacy\CWebDriver240.cs" />
+    <Compile Include="Com\DataModels\HeatmapModalModel.cs" />
     <Compile Include="Com\DataModels\ProjectCardModel.cs" />
     <Compile Include="Com\Sites\Prma\Pages\AbstractPage.cs" />
     <Compile Include="Com\Sites\Prma\Pages\ForgotPasswordPage.cs" />
     <Compile Include="Com\Sites\Prma\Pages\LandingPage.cs" />
+    <Compile Include="Com\Sites\Prma\Pages\Requirements\RequirementsPage.cs" />
     <Compile Include="Com\Sites\Prma\Steps\ForgotPasswordSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\LandingPageSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\LoginHTASteps.cs" />
+    <Compile Include="Com\Sites\Prma\Steps\Requirements\RequirementsSteps.cs" />
     <Compile Include="Com\Tools\FormatUtils.cs" />
     <Compile Include="Com\DataModels\HeatmapCellModel.cs" />
     <Compile Include="Com\DataModels\HeatmapTooltipModel.cs" />
@@ -205,7 +208,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Com\Tools\Helper files\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
