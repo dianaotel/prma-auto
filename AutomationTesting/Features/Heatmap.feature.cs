@@ -61,34 +61,37 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _11VerifyTheAgencyColumnsAreCorrect(string project_Title, string[] exampleTags)
+        public virtual void _12VerifyTheAgencyFilterUncheckFunctionality(string project_Title, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(11) Verify the agency columns are correct", exampleTags);
-#line 151
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(12) Verify the Agency filter uncheck functionality", exampleTags);
+#line 165
 this.ScenarioSetup(scenarioInfo);
-#line 152
+#line 166
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 153
+#line 167
  testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 154
+#line 168
  testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 155
+#line 169
  testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 156
- testRunner.And("I save the number of agencies on the heatmap in a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 157
+#line 170
+ testRunner.Then("I see agency columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 171
  testRunner.When("I open the heatmap Filter by Agency drop-down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 158
- testRunner.Then("I check the number of agencies in the drop-down is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 172
+ testRunner.And("I select the Uncheck all option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 173
+ testRunner.Then("all agency columns disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(11) Verify the agency columns are correct, ABBV-085 in SCCHN TPP assessment", SourceLine=161)]
-        public virtual void _11VerifyTheAgencyColumnsAreCorrect_ABBV_085InSCCHNTPPAssessment()
+        [TechTalk.SpecRun.ScenarioAttribute("(12) Verify the Agency filter uncheck functionality, ABBV-085 in SCCHN TPP assess" +
+            "ment", SourceLine=176)]
+        public virtual void _12VerifyTheAgencyFilterUncheckFunctionality_ABBV_085InSCCHNTPPAssessment()
         {
-#line 151
-this._11VerifyTheAgencyColumnsAreCorrect("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
+#line 165
+this._12VerifyTheAgencyFilterUncheckFunctionality("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
 #line hidden
         }
         

@@ -146,35 +146,35 @@
 #Examples: 
 #	| project_title                    |
 #	| ABBV-085 in SCCHN TPP assessment |
-
-
-Scenario Outline: (11) Verify the agency columns are correct
-	Given I navigate to the login URL
-	And I login with valid prma admin credentials
-	When I open the project '<project_title>'
-	And I navigate to the heatmap
-	And I save the number of agencies on the heatmap in a file 
-	When I open the heatmap Filter by Agency drop-down
-	Then I check the number of agencies in the drop-down is correct
-
-Examples: 
-	| project_title                    |
-	| ABBV-085 in SCCHN TPP assessment |
-
-
-#Scenario Outline: (12) Verify the Agency filter uncheck functionality
+#
+#
+#Scenario Outline: (11) Verify the agency columns are correct
 #	Given I navigate to the login URL
 #	And I login with valid prma admin credentials
 #	When I open the project '<project_title>'
 #	And I navigate to the heatmap
-#	Then I see agency columns 
+#	And I save the number of agencies on the heatmap in a file 
 #	When I open the heatmap Filter by Agency drop-down
-#	And I select the Uncheck all option
-#	Then all agency columns disappear
+#	Then I check the number of agencies in the drop-down is correct
 #
 #Examples: 
 #	| project_title                    |
 #	| ABBV-085 in SCCHN TPP assessment |
+
+
+Scenario Outline: (12) Verify the Agency filter uncheck functionality
+	Given I navigate to the login URL
+	And I login with valid prma admin credentials
+	When I open the project '<project_title>'
+	And I navigate to the heatmap
+	Then I see agency columns 
+	When I open the heatmap Filter by Agency drop-down
+	And I select the Uncheck all option
+	Then all agency columns disappear
+
+Examples: 
+	| project_title                    |
+	| ABBV-085 in SCCHN TPP assessment |
 
 
 #Scenario: Verify the colouring of the summary cell

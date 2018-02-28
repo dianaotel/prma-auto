@@ -27,7 +27,6 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By agencyDropdown = By.CssSelector(".filter span[items='heatmap.agencies']");
         private By agenciesInDropdownList = By.CssSelector(".filter span[items='heatmap.agencies'] .items .item");
 
-
         // Left-side panel locators
         private By totalDomains = By.CssSelector(".left-side .summary-row:nth-child(1) .value");
         private By totalRequirements = By.CssSelector(".left-side .summary-row:nth-child(2) .value");
@@ -78,6 +77,19 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         {
             WaitForPageToLoad(webdriver);
             return webdriver.FindElement(pageTitle).Text.Trim();
+        }
+
+        public bool AreAgencyColumnsDisplayed()
+        {
+            try
+            {
+                return webdriver.FindElement(agencyCellsList).Displayed;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public void WriteInFileTotalReqsAndKVsOnPage()
@@ -172,7 +184,8 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 
         public string GetNumberOfAgenciesInDropdown()
         {
-            return webdriver.FindElement(agenciesInDropdownList).Text;
+            List<IWebElement> agenciesList = webdriver.FindElements(agenciesInDropdownList).ToList();
+            return agenciesList.Count().ToString();
         }
         /************************************************************************/
 
@@ -187,6 +200,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             string number = agenciesList.Count().ToString();
 
             string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
+            File.WriteAllText(path, string.Empty);
             File.WriteAllText(path, number);
         }
         /************************************************************************/

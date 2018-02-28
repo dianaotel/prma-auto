@@ -50,6 +50,20 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.AreEqual(breadcrumbs, actualBreadcrumbs);
         }
 
+        [Then(@"I see agency columns")]
+        public void ThenISeeAgencyColumns()
+        {
+            bool areAgenciesDisplayed = heatmapPage.AreAgencyColumnsDisplayed();
+            Assert.IsTrue(areAgenciesDisplayed);
+        }
+
+        [Then(@"all agency columns disappear")]
+        public void ThenAllAgencyColumnsDisappear()
+        {
+            bool areAgenciesDisplayed = heatmapPage.AreAgencyColumnsDisplayed();
+            Assert.IsFalse(areAgenciesDisplayed);
+        }
+
         [Then(@"the total number of requirements and KVs on the page is saved in file")]
         public void ThenTheTotalNumberOfRequirementsAndKVsIsSavedInFile()
         {
@@ -151,7 +165,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             string dropdownAgencies = heatmapPage.GetNumberOfAgenciesInDropdown();
             bool isNumberCorrect = false;
 
-            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\HeatmapModal.txt";
+            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
             var lines = File.ReadLines(path);
             string heatmapAgencies = lines.Skip(0).Take(1).First();
 
@@ -160,7 +174,8 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
                 isNumberCorrect = true;
             }
 
-            Assert.IsTrue(isNumberCorrect);
+            Assert.IsTrue(isNumberCorrect, "Number of Agencies in dropdown: " + dropdownAgencies + " -- Number of Agencies on heatmap: " + heatmapAgencies);
+
         }
 
         [When(@"I select the Uncheck all option")]
@@ -169,11 +184,8 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"all agency columns disappear")]
-        public void ThenAllAgencyColumnsDisappear()
-        {
-            ScenarioContext.Current.Pending();
-        }
+        
+
 
 
 

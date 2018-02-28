@@ -73,7 +73,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Requirements
                 isNumberCorrect = true;
             }
 
-            Assert.IsTrue(isNumberCorrect);
+            Assert.IsTrue(isNumberCorrect, "Expected number of KVs in title: " + kvsNumber + " -- Actual title: " + actualTitle);
         }
 
     }
