@@ -25,6 +25,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
             heatmapPage = new HeatmapPage(webdriver.GetDriver());
         }
 
+        /********** Agency filter *****************************/
         [When(@"I open the heatmap Filter by Agency drop-down")]
         public void WhenIOpenTheHeatmapFilterByAgencyDrop_Down()
         {
@@ -34,20 +35,19 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
         [Then(@"I check the number of agencies in the drop-down is correct")]
         public void ThenICheckTheNumberOfAgenciesInTheDrop_Down()
         {
-            string dropdownAgencies = heatmapPage.GetNumberOfAgenciesInDropdown();
+            string agenciesDropdown = heatmapPage.GetNumberOfAgenciesInDropdown();
             bool isNumberCorrect = false;
 
             string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
             var lines = File.ReadLines(path);
             string heatmapAgencies = lines.Skip(0).Take(1).First();
 
-            if (heatmapAgencies.Equals(dropdownAgencies))
+            if (heatmapAgencies.Equals(agenciesDropdown))
             {
                 isNumberCorrect = true;
             }
 
-            Assert.IsTrue(isNumberCorrect, "Number of Agencies in dropdown: " + dropdownAgencies + " -- Number of Agencies on heatmap: " + heatmapAgencies);
-
+            Assert.IsTrue(isNumberCorrect, "Number of Agencies in dropdown: " + agenciesDropdown + " -- Number of Agencies on heatmap: " + heatmapAgencies);
         }
 
         [When(@"I select the Uncheck all option on Agency filter")]
@@ -76,5 +76,35 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
             Assert.AreEqual(agency1, agenciesList[0]);
             Assert.AreEqual(agency2, agenciesList[1]);
         }
+        /******************************************************************/
+
+
+        /********** Domain filter *****************************/
+        [When(@"I open the heatmap Filter by Domain drop-down")]
+        public void WhenIOpenTheHeatmapFilterByDomainDrop_Down()
+        {
+            heatmapPage.ClickOnDomainDropdown();
+        }
+
+        [Then(@"I check the number of domains in the drop-down is correct")]
+        public void ThenICheckTheNumberOfDomainsInTheDrop_DownIsCorrect()
+        {
+            string domainsDropdown = heatmapPage.GetNumberOfDomainsInDropdown();
+            bool isNumberCorrect = false;
+
+            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
+            var lines = File.ReadLines(path);
+            string heatmapDomains = lines.Skip(0).Take(1).First();
+
+            if (heatmapDomains.Equals(domainsDropdown))
+            {
+                isNumberCorrect = true;
+            }
+
+            Assert.IsTrue(isNumberCorrect, "Number of Domains in dropdown: " + domainsDropdown + " -- Number of Domains on heatmap: " + heatmapDomains);
+        }
+
+        /******************************************************************/
+
     }
 }

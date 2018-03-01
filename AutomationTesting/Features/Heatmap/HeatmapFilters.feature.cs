@@ -94,44 +94,6 @@ this._5VerifyThatTheTotalNumberOfDomainRowsMatchesTheTotalNumberOfDomainsInDrop_
 #line hidden
         }
         
-        public virtual void _4VerifyTheAgenciesDisplayedAreTheOnesSelectedInTheDrop_Down(string project_Title, string agency1, string agency2, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify the agencies displayed are the ones selected in the drop-down", exampleTags);
-#line 111
-this.ScenarioSetup(scenarioInfo);
-#line 112
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 113
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 114
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 115
- testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 116
- testRunner.Then("I see agency columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 117
- testRunner.When("I open the heatmap Filter by Agency drop-down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 118
- testRunner.And("I select the Uncheck all option on Agency filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 119
- testRunner.And(string.Format("I select agency1 \'{0}\' and agency2 \'{1}\'", agency1, agency2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 120
- testRunner.Then("I see agency columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 121
- testRunner.And(string.Format("the agencies on the heatmap are agency1 \'{0}\' and agency2 \'{1}\'", agency1, agency2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify the agencies displayed are the ones selected in the drop-down, Automat" +
-            "ion Project 2", SourceLine=124)]
-        public virtual void _4VerifyTheAgenciesDisplayedAreTheOnesSelectedInTheDrop_Down_AutomationProject2()
-        {
-#line 111
-this._4VerifyTheAgenciesDisplayedAreTheOnesSelectedInTheDrop_Down("Automation Project 2", "Infarmed (Portugal)", "NICE_2015 (England)", ((string[])(null)));
-#line hidden
-        }
-        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

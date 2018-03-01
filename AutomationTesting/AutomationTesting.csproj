@@ -127,6 +127,8 @@
     <Compile Include="Com\Sites\Prma\Pages\LandingPage.cs" />
     <Compile Include="Com\Sites\Prma\Pages\Requirements\RequirementsPage.cs" />
     <Compile Include="Com\Sites\Prma\Steps\ForgotPasswordSteps.cs" />
+    <Compile Include="Com\Sites\Prma\Steps\Heatmap\HeatmapFiltersSteps.cs" />
+    <Compile Include="Com\Sites\Prma\Steps\Heatmap\HeatmapReqsModalSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\LandingPageSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\LoginHTASteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\Requirements\RequirementsSteps.cs" />
@@ -146,10 +148,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ForgotPassword.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Heatmap.feature.cs">
+    <Compile Include="Features\Heatmap\Heatmap.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Heatmap.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Heatmap\HeatmapFilters.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HeatmapFilters.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Heatmap\HeatmapRequirementsModal.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HeatmapRequirementsModal.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\LandingPage.feature.cs">
       <AutoGen>True</AutoGen>
@@ -177,9 +189,17 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ForgotPassword.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Heatmap.feature">
+    <None Include="Features\Heatmap\Heatmap.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Heatmap.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Heatmap\HeatmapFilters.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HeatmapFilters.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Heatmap\HeatmapRequirementsModal.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HeatmapRequirementsModal.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\LandingPage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

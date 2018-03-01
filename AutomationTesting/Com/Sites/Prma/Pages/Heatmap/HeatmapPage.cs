@@ -26,12 +26,15 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         // Filters locators
         private By agencyDropdown = By.CssSelector(".filter span[items='heatmap.agencies']");
         private By agenciesInDropdownList = By.CssSelector(".filter span[items='heatmap.agencies'] .items .item");
-        private By agenciesCheckUncheckAllOption = By.CssSelector(".filter span[items='heatmap.agencies'] .check-uncheck-all"); 
+        private By agenciesCheckUncheckAllOption = By.CssSelector(".filter span[items='heatmap.agencies'] .check-uncheck-all");
+        private By domainDropdown = By.CssSelector(".filter span[items='heatmap.domains']");
+        private By domainsInDropdownList = By.CssSelector(".filter span[items='heatmap.domains'] .items .item");
 
         // Left-side panel locators
         private By totalDomains = By.CssSelector(".left-side .summary-row:nth-child(1) .value");
         private By totalRequirements = By.CssSelector(".left-side .summary-row:nth-child(2) .value");
         private By totalKVs = By.CssSelector(".left-side .summary-row:nth-child(3) .value");
+        private By domainRowsList = By.CssSelector(".domain-row");
 
         // Cell locators
         private By agencyCellsList = By.CssSelector(".right-container .agency-cell");
@@ -223,6 +226,16 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
 
 
         /********** Domain filter methods ******************************************/
+        public void ClickOnDomainDropdown()
+        {
+            webdriver.FindElement(domainDropdown).Click();
+        }
+
+        public string GetNumberOfDomainsInDropdown()
+        {
+            List<IWebElement> domainsList = webdriver.FindElements(domainsInDropdownList).ToList();
+            return domainsList.Count().ToString();
+        }
         /************************************************************************/
 
 
@@ -232,6 +245,16 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         {
             List<IWebElement> agenciesList = webdriver.FindElements(agencyCellsList).ToList();
             string number = agenciesList.Count().ToString();
+
+            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
+            File.WriteAllText(path, string.Empty);
+            File.WriteAllText(path, number);
+        }
+
+        public void WriteInFileNumberOfDomainsOnHeatmap()
+        {
+            List<IWebElement> domainsList = webdriver.FindElements(domainRowsList).ToList();
+            string number = domainsList.Count().ToString();
 
             string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
             File.WriteAllText(path, string.Empty);

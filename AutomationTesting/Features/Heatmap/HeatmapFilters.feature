@@ -106,20 +106,20 @@ Examples:
 #Examples: 
 #	| project_title                    |
 #	| ABBV-085 in SCCHN TPP assessment |
-
-
-Scenario Outline: (4) Verify the agencies displayed are the ones selected in the drop-down
-	Given I navigate to the login URL
-	And I login with valid prma admin credentials
-	When I open the project '<project_title>'
-	And I navigate to the heatmap
-	Then I see agency columns 
-	When I open the heatmap Filter by Agency drop-down
-	And I select the Uncheck all option on Agency filter
-	And I select agency1 '<agency1>' and agency2 '<agency2>'
-	Then I see agency columns
-	And the agencies on the heatmap are agency1 '<agency1>' and agency2 '<agency2>'
-
-Examples: 
-	| project_title        | agency1             | agency2             |
-	| Automation Project 2 | Infarmed (Portugal) | NICE_2015 (England) |
+#
+#
+#Scenario Outline: (4) Verify the agencies displayed are the ones selected in the drop-down
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then I see agency columns 
+#	When I open the heatmap Filter by Agency drop-down
+#	And I select the Uncheck all option on Agency filter
+#	And I select agency1 '<agency1>' and agency2 '<agency2>'
+#	Then I see agency columns
+#	And the agencies on the heatmap are agency1 '<agency1>' and agency2 '<agency2>'
+#
+#Examples: 
+#	| project_title        | agency1             | agency2             |
+#	| Automation Project 2 | Infarmed (Portugal) | NICE_2015 (England) |

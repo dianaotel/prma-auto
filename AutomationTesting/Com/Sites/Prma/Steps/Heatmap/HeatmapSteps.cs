@@ -70,6 +70,12 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             heatmapPage.WriteInFileNumberOfAgenciesOnHeatmap();
         }
 
+        [When(@"I save the number of domains on the heatmap in a file")]
+        public void WhenISaveTheNumberOfDomainsOnTheHeatmapInAFile()
+        {
+            heatmapPage.WriteInFileNumberOfDomainsOnHeatmap();
+        }
+
         [Then(@"the total number of requirements and KVs on the page is saved in file")]
         public void ThenTheTotalNumberOfRequirementsAndKVsIsSavedInFile()
         {
