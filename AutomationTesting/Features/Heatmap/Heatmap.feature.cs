@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace AutomationTesting.Features
+namespace AutomationTesting.Features.Heatmap
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Heatmap", Description="\tTesting the heatmap on a project\r\n\tThat is set on detailed (requirements) view", SourceFile="Features\\Heatmap.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Heatmap", Description="\tTesting the heatmap on a project\r\n\tThat is set on detailed (requirements) view", SourceFile="Features\\Heatmap\\Heatmap.feature", SourceLine=0)]
     public partial class HeatmapFeature
     {
         
