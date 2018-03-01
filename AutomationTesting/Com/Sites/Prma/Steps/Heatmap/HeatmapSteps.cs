@@ -57,10 +57,24 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.IsTrue(areAgenciesDisplayed);
         }
 
+        [Then(@"I see domain rows")]
+        public void ThenISeeDomainRows()
+        {
+            bool areAgenciesDisplayed = heatmapPage.AreDomainRowsDisplayed();
+            Assert.IsTrue(areAgenciesDisplayed);
+        }
+
         [Then(@"all agency columns disappear")]
         public void ThenAllAgencyColumnsDisappear()
         {
             bool areAgenciesDisplayed = heatmapPage.AreAgencyColumnsDisplayed();
+            Assert.IsFalse(areAgenciesDisplayed);
+        }
+
+        [Then(@"all domain rows disappear")]
+        public void ThenAllDomainRowsDisappear()
+        {
+            bool areAgenciesDisplayed = heatmapPage.AreDomainRowsDisplayed();
             Assert.IsFalse(areAgenciesDisplayed);
         }
 

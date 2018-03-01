@@ -61,39 +61,6 @@ namespace AutomationTesting.Features.Heatmap
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _5VerifyThatTheTotalNumberOfDomainRowsMatchesTheTotalNumberOfDomainsInDrop_Down(string project_Title, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(5) Verify that the total number of domain rows matches the total number of domai" +
-                    "ns in drop-down", exampleTags);
-#line 66
-this.ScenarioSetup(scenarioInfo);
-#line 67
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 68
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 69
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 70
- testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 71
- testRunner.And("I save the number of domains on the heatmap in a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 72
- testRunner.When("I open the heatmap Filter by Domain drop-down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 73
- testRunner.Then("I check the number of domains in the drop-down is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(5) Verify that the total number of domain rows matches the total number of domai" +
-            "ns in drop-down, ABBV-085 in SCCHN TPP assessment", SourceLine=76)]
-        public virtual void _5VerifyThatTheTotalNumberOfDomainRowsMatchesTheTotalNumberOfDomainsInDrop_Down_ABBV_085InSCCHNTPPAssessment()
-        {
-#line 66
-this._5VerifyThatTheTotalNumberOfDomainRowsMatchesTheTotalNumberOfDomainsInDrop_Down("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
-#line hidden
-        }
-        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

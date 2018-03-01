@@ -29,6 +29,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By agenciesCheckUncheckAllOption = By.CssSelector(".filter span[items='heatmap.agencies'] .check-uncheck-all");
         private By domainDropdown = By.CssSelector(".filter span[items='heatmap.domains']");
         private By domainsInDropdownList = By.CssSelector(".filter span[items='heatmap.domains'] .items .item");
+        private By domainsCheckUncheckAllOption = By.CssSelector(".filter span[items='heatmap.domains'] .check-uncheck-all");
 
         // Left-side panel locators
         private By totalDomains = By.CssSelector(".left-side .summary-row:nth-child(1) .value");
@@ -96,6 +97,19 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             }
         }
 
+        public bool AreDomainRowsDisplayed()
+        {
+            try
+            {
+                return webdriver.FindElement(domainRowsList).Displayed;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         public void WriteInFileTotalReqsAndKVsOnPage()
         {
             string requirements = webdriver.FindElement(totalRequirements).Text;
@@ -122,6 +136,19 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
                 agencyNames.Add(name);
             }
             return agencyNames;
+        }
+
+        public List<string> GetDomainNamesOnHeatmap()
+        {
+            List<string> domainNames = new List<string>();
+            List<IWebElement> domainRows = webdriver.FindElements(domainRowsList).ToList();
+
+            foreach (IWebElement domains in domainRows)
+            {
+                string name = domains.FindElement(By.CssSelector(".name")).Text;
+                domainNames.Add(name);
+            }
+            return domainNames;
         }
 
 
@@ -206,7 +233,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             return agenciesList.Count().ToString();
         }
 
-        public void ClickOnCheckUncheckAllButton()
+        public void ClickOnAgenciesCheckUncheckAllButton()
         {
             webdriver.FindElement(agenciesCheckUncheckAllOption).Click();
         }
@@ -235,6 +262,23 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         {
             List<IWebElement> domainsList = webdriver.FindElements(domainsInDropdownList).ToList();
             return domainsList.Count().ToString();
+        }
+
+        public void ClickOnDomainsCheckUncheckAllButton()
+        {
+            webdriver.FindElement(domainsCheckUncheckAllOption).Click();
+        }
+
+        public void ClickOnSpecificDomain(string domain)
+        {
+            List<IWebElement> domainsList = webdriver.FindElements(domainsInDropdownList).ToList();
+            foreach (IWebElement dom in domainsList)
+            {
+                if (dom.Text.Equals(domain))
+                {
+                    dom.Click();
+                }
+            }
         }
         /************************************************************************/
 

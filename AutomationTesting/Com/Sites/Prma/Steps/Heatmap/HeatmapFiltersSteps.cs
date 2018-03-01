@@ -53,13 +53,13 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
         [When(@"I select the Uncheck all option on Agency filter")]
         public void ThenISelectTheUncheckAllOptionOnAgencyFilter()
         {
-            heatmapPage.ClickOnCheckUncheckAllButton();
+            heatmapPage.ClickOnAgenciesCheckUncheckAllButton();
         }
 
         [When(@"I select the Check all option on Agency filter")]
         public void WhenISelectTheCheckAllOptionOnAgencyFilter()
         {
-            heatmapPage.ClickOnCheckUncheckAllButton();
+            heatmapPage.ClickOnAgenciesCheckUncheckAllButton();
         }
 
         [When(@"I select agency1 '(.*)' and agency2 '(.*)'")]
@@ -104,6 +104,32 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
             Assert.IsTrue(isNumberCorrect, "Number of Domains in dropdown: " + domainsDropdown + " -- Number of Domains on heatmap: " + heatmapDomains);
         }
 
+        [When(@"I select the Uncheck all option on Domain filter")]
+        public void WhenISelectTheUncheckAllOptionOnDomainFilter()
+        {
+            heatmapPage.ClickOnDomainsCheckUncheckAllButton();
+        }
+
+        [When(@"I select the Check all option on Domain filter")]
+        public void WhenISelectTheCheckAllOptionOnDomainFilter()
+        {
+            heatmapPage.ClickOnDomainsCheckUncheckAllButton();
+        }
+
+        [When(@"I select domain1 '(.*)' and domain2 '(.*)'")]
+        public void WhenISelectDomain1AndDomain2(string domain1, string domain2)
+        {
+            heatmapPage.ClickOnSpecificDomain(domain1);
+            heatmapPage.ClickOnSpecificDomain(domain2);
+        }
+
+        [Then(@"the domains on the heatmap are domain1 '(.*)' and domain2 '(.*)'")]
+        public void ThenISeeTheRowsForDomain1AndDomain2(string domain1, string domain2)
+        {
+            List<string> domainsList = heatmapPage.GetDomainNamesOnHeatmap();
+            Assert.AreEqual(domain1, domainsList[0]);
+            Assert.AreEqual(domain2, domainsList[1]);
+        }
         /******************************************************************/
 
     }
