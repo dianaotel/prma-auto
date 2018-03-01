@@ -148,7 +148,7 @@
 #	| ABBV-085 in SCCHN TPP assessment |
 #
 #
-#Scenario Outline: (11) Verify the agency columns are correct
+#Scenario Outline: (11) Verify that the total number of agency columns matches the total number of agencies in drop-down 
 #	Given I navigate to the login URL
 #	And I login with valid prma admin credentials
 #	When I open the project '<project_title>'
@@ -160,21 +160,54 @@
 #Examples: 
 #	| project_title                    |
 #	| ABBV-085 in SCCHN TPP assessment |
-
-
-Scenario Outline: (12) Verify the Agency filter uncheck functionality
-	Given I navigate to the login URL
-	And I login with valid prma admin credentials
-	When I open the project '<project_title>'
-	And I navigate to the heatmap
-	Then I see agency columns 
-	When I open the heatmap Filter by Agency drop-down
-	And I select the Uncheck all option
-	Then all agency columns disappear
-
-Examples: 
-	| project_title                    |
-	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (12) Verify the Agency filter uncheck functionality
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then I see agency columns 
+#	When I open the heatmap Filter by Agency drop-down
+#	And I select the Uncheck all option on Agency filter
+#	Then all agency columns disappear
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (13) Verify the Agency filter check all functionality
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then I see agency columns 
+#	When I open the heatmap Filter by Agency drop-down
+#	And I select the Uncheck all option on Agency filter
+#	And I select the Check all option on Agency filter
+#	Then I see agency columns
+#
+#Examples: 
+#	| project_title                    |
+#	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (14) Verify the agencies displayed are the ones selected in the drop-down
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then I see agency columns 
+#	When I open the heatmap Filter by Agency drop-down
+#	And I select the Uncheck all option on Agency filter
+#	And I select agency1 '<agency1>' and agency2 '<agency2>'
+#	Then I see agency columns
+#	And the agencies on the heatmap are agency1 '<agency1>' and agency2 '<agency2>'
+#
+#Examples: 
+#	| project_title        | agency1             | agency2             |
+#	| Automation Project 2 | Infarmed (Portugal) | NICE_2015 (England) |
 
 
 #Scenario: Verify the colouring of the summary cell

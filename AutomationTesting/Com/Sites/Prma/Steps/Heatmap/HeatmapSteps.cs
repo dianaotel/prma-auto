@@ -64,6 +64,12 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             Assert.IsFalse(areAgenciesDisplayed);
         }
 
+        [When(@"I save the number of agencies on the heatmap in a file")]
+        public void WhenISaveTheNumberOfAgenciesOnTheHeatmapInAFile()
+        {
+            heatmapPage.WriteInFileNumberOfAgenciesOnHeatmap();
+        }
+
         [Then(@"the total number of requirements and KVs on the page is saved in file")]
         public void ThenTheTotalNumberOfRequirementsAndKVsIsSavedInFile()
         {
@@ -145,14 +151,8 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         }
         /************************************************************************/
 
+
         /********** Filters steps ******************************************/
-
-        [When(@"I save the number of agencies on the heatmap in a file")]
-        public void WhenISaveTheNumberOfAgenciesOnTheHeatmapInAFile()
-        {
-            heatmapPage.WriteInFileNumberOfAgenciesOnHeatmap();
-        }
-
         [When(@"I open the heatmap Filter by Agency drop-down")]
         public void WhenIOpenTheHeatmapFilterByAgencyDrop_Down()
         {
@@ -178,13 +178,34 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
 
         }
 
-        [When(@"I select the Uncheck all option")]
-        public void ThenISelectTheUncheckAllOption()
+        [When(@"I select the Uncheck all option on Agency filter")]
+        public void ThenISelectTheUncheckAllOptionOnAgencyFilter()
         {
-            ScenarioContext.Current.Pending();
+            heatmapPage.ClickOnCheckUncheckAllButton();
         }
 
-        
+        [When(@"I select the Check all option on Agency filter")]
+        public void WhenISelectTheCheckAllOptionOnAgencyFilter()
+        {
+            heatmapPage.ClickOnCheckUncheckAllButton();
+        }
+
+        [When(@"I select agency1 '(.*)' and agency2 '(.*)'")]
+        public void WhenISelectAgency1AndAgency2(string agency1, string agency2)
+        {
+            heatmapPage.ClickOnSpecificAgency(agency1);
+            heatmapPage.ClickOnSpecificAgency(agency2);
+        }
+
+        [Then(@"the agencies on the heatmap are agency1 '(.*)' and agency2 '(.*)'")]
+        public void ThenISeeTheColumnsForAgency1AndAgency2(string agency1, string agency2)
+        {
+            List<string> agenciesList = heatmapPage.GetAgencyNamesOnHeatmap();
+            Assert.AreEqual(agency1, agenciesList[0]);
+            Assert.AreEqual(agency2, agenciesList[1]);
+        }
+
+
 
 
 

@@ -61,40 +61,6 @@ namespace AutomationTesting.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _12VerifyTheAgencyFilterUncheckFunctionality(string project_Title, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(12) Verify the Agency filter uncheck functionality", exampleTags);
-#line 165
-this.ScenarioSetup(scenarioInfo);
-#line 166
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 167
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 168
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 169
- testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 170
- testRunner.Then("I see agency columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 171
- testRunner.When("I open the heatmap Filter by Agency drop-down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 172
- testRunner.And("I select the Uncheck all option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 173
- testRunner.Then("all agency columns disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(12) Verify the Agency filter uncheck functionality, ABBV-085 in SCCHN TPP assess" +
-            "ment", SourceLine=176)]
-        public virtual void _12VerifyTheAgencyFilterUncheckFunctionality_ABBV_085InSCCHNTPPAssessment()
-        {
-#line 165
-this._12VerifyTheAgencyFilterUncheckFunctionality("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
-#line hidden
-        }
-        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

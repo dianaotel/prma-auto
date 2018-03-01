@@ -26,6 +26,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         // Filters locators
         private By agencyDropdown = By.CssSelector(".filter span[items='heatmap.agencies']");
         private By agenciesInDropdownList = By.CssSelector(".filter span[items='heatmap.agencies'] .items .item");
+        private By agenciesCheckUncheckAllOption = By.CssSelector(".filter span[items='heatmap.agencies'] .check-uncheck-all"); 
 
         // Left-side panel locators
         private By totalDomains = By.CssSelector(".left-side .summary-row:nth-child(1) .value");
@@ -107,6 +108,19 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             webdriver.FindElement(totalSummaryCell).Click();
         }
 
+        public List<string> GetAgencyNamesOnHeatmap()
+        {
+            List<string> agencyNames = new List<string>();
+            List<IWebElement> agencyCells = webdriver.FindElements(agencyCellsList).ToList();
+
+            foreach (IWebElement agency in agencyCells)
+            {
+                string name = agency.FindElement(By.CssSelector("div[ng-attr-title*='shortName']")).Text + " (" + agency.FindElement(By.CssSelector("div[ng-attr-title*='countryName']")).Text + ")";
+                agencyNames.Add(name);
+            }
+            return agencyNames;
+        }
+
 
         /********** Requirements modal methods ******************************************/
         public bool IsModalDisplayed()
@@ -176,7 +190,8 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         }
         /************************************************************************/
 
-        /********** Filters methods ******************************************/
+
+        /********** Agency filter methods ******************************************/
         public void ClickOnAgencyDropdown()
         {
             webdriver.FindElement(agencyDropdown).Click();
@@ -187,9 +202,28 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             List<IWebElement> agenciesList = webdriver.FindElements(agenciesInDropdownList).ToList();
             return agenciesList.Count().ToString();
         }
+
+        public void ClickOnCheckUncheckAllButton()
+        {
+            webdriver.FindElement(agenciesCheckUncheckAllOption).Click();
+        }
+
+        public void ClickOnSpecificAgency(string agency)
+        {
+            List<IWebElement> agenciesList = webdriver.FindElements(agenciesInDropdownList).ToList();
+            foreach (IWebElement ag in agenciesList)
+            {
+                if (ag.Text.Equals(agency))
+                {
+                    ag.Click();
+                }
+            }
+        }
         /************************************************************************/
 
 
+        /********** Domain filter methods ******************************************/
+        /************************************************************************/
 
 
 
