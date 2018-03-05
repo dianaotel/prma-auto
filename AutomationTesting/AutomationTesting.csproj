@@ -132,12 +132,14 @@
     <Compile Include="Com\Sites\Prma\Pages\ForgotPasswordPage.cs" />
     <Compile Include="Com\Sites\Prma\Pages\LandingPage.cs" />
     <Compile Include="Com\Sites\Prma\Pages\Requirements\RequirementsPage.cs" />
+    <Compile Include="Com\Sites\Prma\Pages\Strategy\DomainStrategyPage.cs" />
     <Compile Include="Com\Sites\Prma\Steps\ForgotPasswordSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\Heatmap\HeatmapFiltersSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\Heatmap\HeatmapReqsModalSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\LandingPageSteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\LoginHTASteps.cs" />
     <Compile Include="Com\Sites\Prma\Steps\Requirements\RequirementsSteps.cs" />
+    <Compile Include="Com\Sites\Prma\Steps\Strategy\DomainStrategySteps.cs" />
     <Compile Include="Com\Tools\FormatUtils.cs" />
     <Compile Include="Com\DataModels\HeatmapCellModel.cs" />
     <Compile Include="Com\DataModels\HeatmapTooltipModel.cs" />

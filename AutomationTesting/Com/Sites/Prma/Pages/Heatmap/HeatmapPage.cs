@@ -38,6 +38,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By totalRequirements = By.CssSelector(".left-side .summary-row:nth-child(2) .value");
         private By totalKVs = By.CssSelector(".left-side .summary-row:nth-child(3) .value");
         private By domainRowsList = By.CssSelector(".domain-row");
+        private By domainNameList = By.CssSelector(".domain-cell .name");
 
         // Cell locators
         private By agencyCellsList = By.CssSelector(".right-container .agency-cell");
@@ -45,7 +46,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By cellListLocator = By.CssSelector(".data-cells span.cell");
         private By statusElements = By.CssSelector("div[class*='status']");
 
-        // Modal locators
+        // Domain modal locators
+        private By domainModalTitle = By.CssSelector("div[ng-show*='ngDialogData'] .domain-title");
+        private By domainModalText = By.CssSelector(".ngdialog-content div[ng-show='ngDialogData.location === null']");
+
+        // Requirements modal locators
         private By modal = By.CssSelector(".modal-heatmap-cell");
         private By modalTitle = By.CssSelector(".modal-heatmap-cell h3");
         private By modalCloseButton = By.CssSelector(".modal-heatmap-cell rd-app-button[text='Close'] .rd-app-button");
@@ -150,6 +155,45 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
                 domainNames.Add(name);
             }
             return domainNames;
+        }
+
+        public void ClickOnDomain(string name)
+        {
+            List<IWebElement> domainsList = webdriver.FindElements(domainNameList).ToList();
+            foreach (IWebElement domain in domainsList)
+            {
+                if (domain.Text.Equals(name))
+                {
+                    ClickOnElementJS(webdriver, domain);
+                }
+            }
+            WaitForPageToLoad(webdriver);
+        }
+        /*****************************************************************************/
+
+
+        /********** Domain modal methods ******************************************/
+        public bool IsDomainModalDisplayed()
+        {
+            try
+            {
+                return webdriver.FindElement(domainModalTitle).Displayed;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public string GetDomainModalTitle()
+        {
+            return webdriver.FindElement(domainModalTitle).Text;
+        }
+
+        public string GetDomainModalText()
+        {
+            return webdriver.FindElement(domainModalText).Text;
         }
         /*****************************************************************************/
 

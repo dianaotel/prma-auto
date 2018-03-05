@@ -26,6 +26,33 @@
 #	| Automation Project 1 | Automation Project 1 > Project Details > |
 #
 #
+#Scenario Outline: (3) Verify the domain modal
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	When I click on domain '<domain>'
+#	Then the domain modal with title '<domain>' appears
+#	And the modal contains the text '<text>'
+#
+#Examples: 
+#	| project_title        | domain			 | text                                  |
+#	| Automation Project 2 | Product details | There is no strategy for this domain. |
+
+
+Scenario Outline: (4) Verify the domain strategy redirect
+	Given I navigate to the login URL
+	And I login with valid prma admin credentials
+	When I open the project '<project_title>'
+	And I navigate to the heatmap
+	When I click on domain '<domain>'
+	Then I am redirected to the Domain Strategy page
+
+Examples: 
+	| project_title        | domain				|
+	| Automation Project 2 | Automation Domain1 |
+
+
 #Scenario: Verify the colouring of the summary cell
 #	Given I navigate to the login URL
 #	And I login with valid prma admin credentials

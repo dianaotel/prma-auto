@@ -61,6 +61,35 @@ namespace AutomationTesting.Features.Heatmap
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void _4VerifyTheDomainStrategyRedirect(string project_Title, string domain, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify the domain strategy redirect", exampleTags);
+#line 43
+this.ScenarioSetup(scenarioInfo);
+#line 44
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 45
+ testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+ testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 47
+ testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+ testRunner.When(string.Format("I click on domain \'{0}\'", domain), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+ testRunner.Then("I am redirected to the Domain Strategy page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify the domain strategy redirect, Automation Project 2", SourceLine=52)]
+        public virtual void _4VerifyTheDomainStrategyRedirect_AutomationProject2()
+        {
+#line 43
+this._4VerifyTheDomainStrategyRedirect("Automation Project 2", "Automation Domain1", ((string[])(null)));
+#line hidden
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

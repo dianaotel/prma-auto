@@ -102,7 +102,31 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
             heatmapPage.ClickOnTotalSummaryCell();
         }
 
-        
+        [When(@"I click on domain '(.*)'")]
+        public void WhenIClickOnDomain(string domain)
+        {
+            heatmapPage.ClickOnDomain(domain);
+        }
+
+        [Then(@"the domain modal with title '(.*)' appears")]
+        public void ThenTheDomainModalWithTitleAppears(string title)
+        {
+            bool isDisplayed = heatmapPage.IsDomainModalDisplayed();
+            Assert.IsTrue(isDisplayed);
+
+            string actualTitle = heatmapPage.GetDomainModalTitle();
+            Assert.AreEqual(title, actualTitle, "Expected title: " + title + " -- Actual: " + actualTitle);
+        }
+
+        [Then(@"the modal contains the text '(.*)'")]
+        public void ThenTheModalContainsTheText(string text)
+        {
+            string actualText = heatmapPage.GetDomainModalText();
+            Assert.IsTrue(actualText.Contains(text), "Expected text: " + text + " -- Actual: " + actualText);
+        }
+
+
+
 
 
 
