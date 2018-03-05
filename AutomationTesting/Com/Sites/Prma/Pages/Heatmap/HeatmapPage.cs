@@ -30,8 +30,10 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By domainDropdown = By.CssSelector(".filter span[items='heatmap.domains']");
         private By domainsInDropdownList = By.CssSelector(".filter span[items='heatmap.domains'] .items .item");
         private By domainsCheckUncheckAllOption = By.CssSelector(".filter span[items='heatmap.domains'] .check-uncheck-all");
+        private By allSummariesCheckbox = By.CssSelector("label[for='show-summaries']");
 
         // Left-side panel locators
+        private By summaryContent = By.CssSelector(".summary-content");
         private By totalDomains = By.CssSelector(".left-side .summary-row:nth-child(1) .value");
         private By totalRequirements = By.CssSelector(".left-side .summary-row:nth-child(2) .value");
         private By totalKVs = By.CssSelector(".left-side .summary-row:nth-child(3) .value");
@@ -84,24 +86,13 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             return webdriver.FindElement(pageTitle).Text.Trim();
         }
 
-        public bool AreAgencyColumnsDisplayed()
+
+        /********** Left-side panel methods ******************************************/
+        public bool IsSummaryDisplayed()
         {
             try
             {
-                return webdriver.FindElement(agencyCellsList).Displayed;
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
-
-        public bool AreDomainRowsDisplayed()
-        {
-            try
-            {
-                return webdriver.FindElement(domainRowsList).Displayed;
+                return webdriver.FindElement(summaryContent).Displayed;
             }
             catch (Exception)
             {
@@ -125,17 +116,27 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             webdriver.FindElement(totalSummaryCell).Click();
         }
 
-        public List<string> GetAgencyNamesOnHeatmap()
+        public bool AreDomainRowsDisplayed()
         {
-            List<string> agencyNames = new List<string>();
-            List<IWebElement> agencyCells = webdriver.FindElements(agencyCellsList).ToList();
-
-            foreach (IWebElement agency in agencyCells)
+            try
             {
-                string name = agency.FindElement(By.CssSelector("div[ng-attr-title*='shortName']")).Text + " (" + agency.FindElement(By.CssSelector("div[ng-attr-title*='countryName']")).Text + ")";
-                agencyNames.Add(name);
+                return webdriver.FindElement(domainRowsList).Displayed;
             }
-            return agencyNames;
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public void WriteInFileNumberOfDomainsOnHeatmap()
+        {
+            List<IWebElement> domainsList = webdriver.FindElements(domainRowsList).ToList();
+            string number = domainsList.Count().ToString();
+
+            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
+            File.WriteAllText(path, string.Empty);
+            File.WriteAllText(path, number);
         }
 
         public List<string> GetDomainNamesOnHeatmap()
@@ -150,6 +151,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             }
             return domainNames;
         }
+        /*****************************************************************************/
 
 
         /********** Requirements modal methods ******************************************/
@@ -283,8 +285,27 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         /************************************************************************/
 
 
+        /********** All Summaries filter methods ****************************/
+        public void ClickOnAllSummariesCheckbox()
+        {
+            webdriver.FindElement(allSummariesCheckbox).Click();
+        }
+        /********************************************************************/
 
         /********** Heatmap methods ******************************************/
+        public bool AreAgencyColumnsDisplayed()
+        {
+            try
+            {
+                return webdriver.FindElement(agencyCellsList).Displayed;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         public void WriteInFileNumberOfAgenciesOnHeatmap()
         {
             List<IWebElement> agenciesList = webdriver.FindElements(agencyCellsList).ToList();
@@ -295,19 +316,19 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             File.WriteAllText(path, number);
         }
 
-        public void WriteInFileNumberOfDomainsOnHeatmap()
+        public List<string> GetAgencyNamesOnHeatmap()
         {
-            List<IWebElement> domainsList = webdriver.FindElements(domainRowsList).ToList();
-            string number = domainsList.Count().ToString();
+            List<string> agencyNames = new List<string>();
+            List<IWebElement> agencyCells = webdriver.FindElements(agencyCellsList).ToList();
 
-            string path = @"C:\Users\dianaotel\Desktop\PRMA\Automation\AutomationTesting\AutomationTesting\Com\Tools\Helper files\Heatmap.txt";
-            File.WriteAllText(path, string.Empty);
-            File.WriteAllText(path, number);
+            foreach (IWebElement agency in agencyCells)
+            {
+                string name = agency.FindElement(By.CssSelector("div[ng-attr-title*='shortName']")).Text + " (" + agency.FindElement(By.CssSelector("div[ng-attr-title*='countryName']")).Text + ")";
+                agencyNames.Add(name);
+            }
+            return agencyNames;
         }
         /************************************************************************/
-
-
-
 
 
 

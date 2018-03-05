@@ -1,5 +1,6 @@
 ﻿Feature: HeatmapFilters
-	
+	Testing the heatmap filters
+	On a project set on detailed view
 
 #Scenario Outline: (1) Verify that the total number of agency columns matches the total number of agencies in drop-down 
 #	Given I navigate to the login URL
@@ -123,3 +124,31 @@
 #Examples: 
 #	| project_title        | domain1      | domain2 |
 #	| Automation Project 2 | Trial design | Costs   |
+#
+#
+#Scenario Outline: (9) Verify the All Summaries uncheck functionality
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	Then I see the requirement summary section and row
+#	When I uncheck the All Summaries checkbox
+#	Then the requirement summary section and row dissapear
+#
+#Examples: 
+#	| project_title					   |
+#	| ABBV-085 in SCCHN TPP assessment |
+#
+#
+#Scenario Outline: (10) Verify the All Summaries check functionality
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	And I uncheck the All Summaries checkbox
+#	When I check the All Summaries checkbox
+#	Then I see the requirement summary section and row
+#
+#Examples: 
+#	| project_title					   |
+#	| ABBV-085 in SCCHN TPP assessment |

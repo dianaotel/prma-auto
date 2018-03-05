@@ -17,7 +17,6 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
     {
         private CWebDriver webdriver;
         HeatmapPage heatmapPage;
-        HeatmapTooltipPage heatmapTooltipPage;
 
         public HeatmapFiltersSteps(CWebDriver driver)
         {
@@ -129,6 +128,35 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
             List<string> domainsList = heatmapPage.GetDomainNamesOnHeatmap();
             Assert.AreEqual(domain1, domainsList[0]);
             Assert.AreEqual(domain2, domainsList[1]);
+        }
+        /******************************************************************/
+
+
+        /********** All Summaries *****************************/
+        [Then(@"I see the requirement summary section and row")]
+        public void ThenISeeTheRequirementSummarySectionAndRow()
+        {
+            bool isDisplayed = heatmapPage.IsSummaryDisplayed();
+            Assert.IsTrue(isDisplayed);
+        }
+
+        [Then(@"the requirement summary section and row disappear")]
+        public void ThenTheRequirementSummarySectionAndRowDisappear()
+        {
+            bool isDisplayed = heatmapPage.IsSummaryDisplayed();
+            Assert.IsFalse(isDisplayed);
+        }
+
+        [When(@"I uncheck the All Summaries checkbox")]
+        public void WhenIUncheckTheAllSummariesCheckbox()
+        {
+            heatmapPage.ClickOnAllSummariesCheckbox();
+        }
+
+        [When(@"I check the All Summaries checkbox")]
+        public void WhenICheckTheAllSummariesCheckbox()
+        {
+            heatmapPage.ClickOnAllSummariesCheckbox();
         }
         /******************************************************************/
 

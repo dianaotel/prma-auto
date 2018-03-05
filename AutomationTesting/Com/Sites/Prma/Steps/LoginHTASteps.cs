@@ -11,7 +11,6 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
     {
         private CWebDriver webdriver;
         LoginPage loginPage;
-        LandingPage landingPage;
 
         public LoginHTASteps(CWebDriver driver)
         {

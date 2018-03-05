@@ -17,7 +17,6 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Heatmap
     {
         private CWebDriver webdriver;
         HeatmapPage heatmapPage;
-        HeatmapTooltipPage heatmapTooltipPage;
 
         public HeatmapReqsModalSteps(CWebDriver driver)
         {
