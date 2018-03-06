@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Threading;
 
 namespace AutomationTesting.Com.Sites.Prma.Pages
 {
@@ -164,10 +165,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             {
                 if (domain.Text.Equals(name))
                 {
-                    ClickOnElementJS(webdriver, domain);
+                    new WebDriverWait(webdriver, TimeSpan.FromSeconds(Constants.WAIT_TIME_DEFAULT)).Until(ExpectedConditions.ElementToBeClickable(domain));
+                    domain.Click();
+                    WaitForPageToLoad(webdriver);
                 }
             }
-            WaitForPageToLoad(webdriver);
         }
         /*****************************************************************************/
 

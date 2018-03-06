@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace AutomationTesting.Features
+namespace AutomationTesting.Features.Login
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("ForgotPassword", SourceFile="Features\\ForgotPassword.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("ForgotPassword", SourceFile="Features\\Login\\ForgotPassword.feature", SourceLine=0)]
     public partial class ForgotPasswordFeature
     {
         

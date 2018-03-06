@@ -25,11 +25,12 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Strategy
             domainStrategyPage = new DomainStrategyPage(webdriver.GetDriver());
         }
 
-        [Then(@"I am redirected to the Domain Strategy page")]
-        public void ThenIAmRedirectedToTheDomainStrategyPage()
+        [Then(@"I am redirected to the Domain Strategy page '(.*)'")]
+        public void ThenIAmRedirectedToTheDomainStrategyPage(string url)
         {
+            string expectedContainedURL = ConfigurationManager.AppSettings["BaseUrl"] + url;
             string actualURL = domainStrategyPage.GetCurrentUrl();
-            Assert.IsTrue(actualURL.Contains("rd-domain-strategy"));
+            Assert.IsTrue(actualURL.Contains(expectedContainedURL));
         }
 
     }

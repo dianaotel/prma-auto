@@ -46,11 +46,11 @@ Scenario Outline: (4) Verify the domain strategy redirect
 	When I open the project '<project_title>'
 	And I navigate to the heatmap
 	When I click on domain '<domain>'
-	Then I am redirected to the Domain Strategy page
+	Then I am redirected to the Domain Strategy page '<url>'
 
 Examples: 
-	| project_title        | domain				|
-	| Automation Project 2 | Automation Domain1 |
+	| project_title        | domain             | url                |
+	| Automation Project 2 | Automation Domain1 | rd-domain-strategy |
 
 
 #Scenario: Verify the colouring of the summary cell

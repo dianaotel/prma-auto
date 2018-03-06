@@ -10,27 +10,29 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace AutomationTesting.Features.Heatmap
+namespace AutomationTesting.Features.ProjectDashboard
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Heatmap", Description="\tTesting the heatmap on a project\r\n\tThat is set on detailed (requirements) view", SourceFile="Features\\Heatmap\\Heatmap.feature", SourceLine=0)]
-    public partial class HeatmapFeature
+    [TechTalk.SpecRun.FeatureAttribute("ProjectDashboard", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
+        "f two numbers", SourceFile="Features\\Project Dashboard\\ProjectDashboard.feature", SourceLine=0)]
+    public partial class ProjectDashboardFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Heatmap.feature"
+#line 1 "ProjectDashboard.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Heatmap", "\tTesting the heatmap on a project\r\n\tThat is set on detailed (requirements) view", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ProjectDashboard", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
+                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -61,33 +63,18 @@ namespace AutomationTesting.Features.Heatmap
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _4VerifyTheDomainStrategyRedirect(string project_Title, string domain, string url, string[] exampleTags)
+        [TechTalk.SpecRun.ScenarioAttribute("Add two numbers", SourceLine=6)]
+        public virtual void AddTwoNumbers()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify the domain strategy redirect", exampleTags);
-#line 43
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", ((string[])(null)));
+#line 7
 this.ScenarioSetup(scenarioInfo);
-#line 44
+#line 8
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 45
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 46
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 47
- testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 48
- testRunner.When(string.Format("I click on domain \'{0}\'", domain), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 49
- testRunner.Then(string.Format("I am redirected to the Domain Strategy page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+ testRunner.And("I login with valid client admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify the domain strategy redirect, Automation Project 2", SourceLine=52)]
-        public virtual void _4VerifyTheDomainStrategyRedirect_AutomationProject2()
-        {
-#line 43
-this._4VerifyTheDomainStrategyRedirect("Automation Project 2", "Automation Domain1", "rd-domain-strategy", ((string[])(null)));
-#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]

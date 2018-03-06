@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace AutomationTesting.Features
+namespace AutomationTesting.Features.Login
 {
     using TechTalk.SpecFlow;
     
@@ -19,7 +19,7 @@ namespace AutomationTesting.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [TechTalk.SpecRun.FeatureAttribute("LoginHTA", new string[] {
             "hta",
-            "login"}, SourceFile="Features\\LoginHTA.feature", SourceLine=1)]
+            "login"}, SourceFile="Features\\Login\\LoginHTA.feature", SourceLine=1)]
     public partial class LoginHTAFeature
     {
         
