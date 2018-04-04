@@ -14,6 +14,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By breadcrumbs = By.CssSelector(".left .rd-breadcrumbs");
 
 
+        public void NavigateToUrlA(IWebDriver webdriver, string url)
+        {
+            webdriver.Navigate().GoToUrl(url);
+        }
+
         public string GetCurrentUrlA(IWebDriver webdriver)
         {
             return webdriver.Url;

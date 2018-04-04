@@ -25,6 +25,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
         private By invalidLoginErrorMessage = By.CssSelector("span[class='error ng-binding']");
         private By requiredPasswordErrorMessage = By.CssSelector("span[ng-show*='password']");
 
+        public void NavigateToUrl(string url)
+        {
+            NavigateToUrlA(webdriver, url);
+        }
+
         public void InputUserName(String userName)
         {
             new WebDriverWait(webdriver, TimeSpan.FromSeconds(Constants.WAIT_TIME_DEFAULT)).Until(ExpectedConditions.ElementToBeClickable(userNameInput));

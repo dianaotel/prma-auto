@@ -22,7 +22,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps
         public void GivenINavigateToTheLoginUrl()
         {
             var baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
-            webdriver.GetDriver().Navigate().GoToUrl(baseUrl + "login");
+            loginPage.NavigateToUrl(baseUrl + "login");
         }
         
         [Given(@"I login with valid prma admin credentials")]
