@@ -36,7 +36,7 @@ Scenario Outline: (3) Verify Objectives Save button
 	And I click on the Objectives edit button
 	And I write text '<text>' inside the Objectives editor
 	And I click on the Objectives Save button
-	Then the text is saved
+	Then the text '<text>' is saved
 
 Examples: 
 	| project_title                    | url                               | text            |

@@ -26,10 +26,13 @@ namespace AutomationTesting.Com.Sites.Prma.Pages.Project_Details
         private By pageTitle = By.CssSelector(".rd-title");
 
         // Objectives locators
-        private By objSectionTitle = By.CssSelector("rd-froala-editor-inline[title='Objectives'] .rd-heading");
+        private static string objSelector = "rd-froala-editor-inline[title='Objectives'] ";
+        private By objSectionTitle = By.CssSelector(objSelector + ".rd-heading");
+        private By objTextPanel = By.CssSelector(objSelector + "div[contenteditable='false']");
         private By objEditButton = By.CssSelector(".froala-pencil");
-        private By objEditorToolbar = By.CssSelector("rd-froala-editor-inline[title='Objectives'] .fr-toolbar");
-        private By objEditorPanel = By.CssSelector("rd-froala-editor-inline[title='Objectives'] .fr-wrapper .fr-element");
+        private By objEditorToolbar = By.CssSelector(objSelector + ".fr-toolbar");
+        private By objEditorPanel = By.CssSelector(objSelector + "div[contenteditable='true']");
+        private By objSaveButton = By.CssSelector(objSelector + ".save");
 
         public void NavigateToUrl(string url)
         {
@@ -43,7 +46,7 @@ namespace AutomationTesting.Com.Sites.Prma.Pages.Project_Details
 
         public string GetPageTitle()
         {
-            return webdriver.FindElement(objSectionTitle).Text;
+            return webdriver.FindElement(pageTitle).Text;
         }
 
         public void ClickOnObjEditButton()
@@ -63,9 +66,21 @@ namespace AutomationTesting.Com.Sites.Prma.Pages.Project_Details
             }
         }
 
-        //public void WriteTextInObjectivesEditor()
-        //{
-        //    webdriver.FindElement();
-        //}
+        public void WriteTextInObjectivesEditor(string text)
+        {
+            IWebElement editor = webdriver.FindElement(objEditorPanel);
+            editor.Clear();
+            editor.SendKeys(text);
+        }
+
+        public void ClickOnObjectivesSaveButton()
+        {
+            webdriver.FindElement(objSaveButton).Click();
+        }
+
+        public bool IsObjTextSaved(string text)
+        {
+            return webdriver.FindElement(objTextPanel).Text.Contains(text);
+        }
     }
 }

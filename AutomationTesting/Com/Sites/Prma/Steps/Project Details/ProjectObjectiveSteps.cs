@@ -33,7 +33,7 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Project_Details
         public void ThenIShouldSeeTheTheProjectObjectivePageWithURLAndTitle(string url, string title)
         {
             string actualUrl = projectObjectivePage.GetCurrentUrlA(webdriver.GetDriver());
-            Assert.AreEqual(url, actualUrl);
+            Assert.IsTrue(actualUrl.Contains(url), "URL is expected to contain: " + url + " -- Actual url: " + actualUrl);
 
             string actualTitle = projectObjectivePage.GetPageTitle();
             Assert.AreEqual(title, actualTitle);
@@ -50,6 +50,24 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Project_Details
         {
             bool isDisplayed = projectObjectivePage.IsObjEditorVisible();
             Assert.IsTrue(isDisplayed);
+        }
+
+        [When(@"I write text '(.*)' inside the Objectives editor")]
+        public void WhenIWriteTextInsideTheObjectivesEditor(string text)
+        {
+            projectObjectivePage.WriteTextInObjectivesEditor(text);
+        }
+
+        [When(@"I click on the Objectives Save button")]
+        public void WhenIClickOnTheObjectivesSaveButton()
+        {
+            projectObjectivePage.ClickOnObjectivesSaveButton();
+        }
+
+        [Then(@"the text '(.*)' is saved")]
+        public void ThenTheTextIsSaved(string text)
+        {
+            projectObjectivePage.IsObjTextSaved(text);
         }
 
     }
