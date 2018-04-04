@@ -61,32 +61,37 @@ namespace AutomationTesting.Features.Heatmap
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _1VerifyTotalSummaryModalOpenAndTitle(string project_Title, string modal_Title, string[] exampleTags)
+        public virtual void _4VerifyTheTotalSummaryModalViewRequirementsButton(string project_Title, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(1) Verify total summary modal open and title", exampleTags);
-#line 4
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify the total summary modal View requirements button", exampleTags);
+#line 48
 this.ScenarioSetup(scenarioInfo);
-#line 5
+#line 49
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 6
+#line 50
  testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 7
+#line 51
  testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 8
+#line 52
  testRunner.And("I navigate to the heatmap", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
+#line 53
  testRunner.When("I click on the total summary cell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.Then(string.Format("a modal with title \'{0}\' appears", modal_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+ testRunner.Then("the modal appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
+ testRunner.When("I click on the View requirements button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 56
+ testRunner.Then("I am redirected to the requirements page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(1) Verify total summary modal open and title, ABBV-085 in SCCHN TPP assessment", SourceLine=13)]
-        public virtual void _1VerifyTotalSummaryModalOpenAndTitle_ABBV_085InSCCHNTPPAssessment()
+        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify the total summary modal View requirements button, ABBV-085 in SCCHN TP" +
+            "P assessment", SourceLine=60)]
+        public virtual void _4VerifyTheTotalSummaryModalViewRequirementsButton_ABBV_085InSCCHNTPPAssessment()
         {
-#line 4
-this._1VerifyTotalSummaryModalOpenAndTitle("ABBV-085 in SCCHN TPP assessment", "All domains, all agencies", ((string[])(null)));
+#line 48
+this._4VerifyTheTotalSummaryModalViewRequirementsButton("ABBV-085 in SCCHN TPP assessment", ((string[])(null)));
 #line hidden
         }
         

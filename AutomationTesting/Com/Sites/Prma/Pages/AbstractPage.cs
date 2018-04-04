@@ -35,11 +35,11 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             wait.Until(driver1 => ((IJavaScriptExecutor)webdriver).ExecuteScript("return document.readyState").Equals("complete"));
         }
 
-        public void WaitUntilElementVisible(IWebDriver webdriver, By elementLocator)
+        public void WaitUntilElementVisible(IWebDriver webdriver, By elementLocator, double waitTime = 10.00)
         {
             try
             {
-                WebDriverWait wait = new WebDriverWait(webdriver, TimeSpan.FromSeconds(10.00));
+                WebDriverWait wait = new WebDriverWait(webdriver, TimeSpan.FromSeconds(waitTime));
                 wait.Until(ExpectedConditions.ElementIsVisible(elementLocator));
             }
             catch (NoSuchElementException)

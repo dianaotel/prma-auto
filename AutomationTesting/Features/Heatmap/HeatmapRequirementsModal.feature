@@ -1,18 +1,18 @@
 ﻿Feature: HeatmapRequirementsModal
 	
 
-Scenario Outline: (1) Verify total summary modal open and title
-	Given I navigate to the login URL
-	And I login with valid prma admin credentials
-	When I open the project '<project_title>'
-	And I navigate to the heatmap
-	When I click on the total summary cell
-	Then a modal with title '<modal_title>' appears
-
-Examples:
-	| project_title                    | modal_title			   |
-	| ABBV-085 in SCCHN TPP assessment | All domains, all agencies |
-	#| Automation Project 1             | All domains, all agencies |
+#Scenario Outline: (1) Verify total summary modal open and title
+#	Given I navigate to the login URL
+#	And I login with valid prma admin credentials
+#	When I open the project '<project_title>'
+#	And I navigate to the heatmap
+#	When I click on the total summary cell
+#	Then a modal with title '<modal_title>' appears
+#
+#Examples:
+#	| project_title                    | modal_title			   |
+#	| ABBV-085 in SCCHN TPP assessment | All domains, all agencies |
+#	| Automation Project 1             | All domains, all agencies |
 #
 #
 #Scenario Outline: (2) Verify the total summary modal Close button
@@ -45,20 +45,20 @@ Examples:
 #	| project_title                    |
 #	| ABBV-085 in SCCHN TPP assessment |
 #
-#Scenario Outline: (4) Verify the total summary modal View requirements button
-#	Given I navigate to the login URL
-#	And I login with valid prma admin credentials
-#	When I open the project '<project_title>'
-#	And I navigate to the heatmap
-#	When I click on the total summary cell
-#	Then the modal appears
-#	When I click on the View requirements button
-#	Then I am redirected to the requirements page
-#	
-#
-#Examples: 
-#	| project_title                    |
-#	| ABBV-085 in SCCHN TPP assessment |
+Scenario Outline: (4) Verify the total summary modal View requirements button
+	Given I navigate to the login URL
+	And I login with valid prma admin credentials
+	When I open the project '<project_title>'
+	And I navigate to the heatmap
+	When I click on the total summary cell
+	Then the modal appears
+	When I click on the View requirements button
+	Then I am redirected to the requirements page
+	
+
+Examples: 
+	| project_title                    |
+	| ABBV-085 in SCCHN TPP assessment |
 #
 #
 #Scenario Outline: (5) Verify the total number of requirements and KVs in page and modal

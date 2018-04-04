@@ -92,7 +92,10 @@ namespace AutomationTesting.Com.Sites.Prma.Pages
             //IList<IWebElement> projectCardsList = webdriver.FindElements(projectCard);
             //projectCardsList.Where(card => card.FindElement(projectTitle).Text.Equals(title))
             //                .ToList().ForEach(card => { card.Click(); });
-            WaitForPageToLoad(webdriver);
+
+            //WaitForPageToLoad(webdriver);
+            WaitUntilElementVisible(webdriver, projectTitle, 30.00);
+            
             IList<IWebElement> projectTitlesList = webdriver.FindElements(projectTitle);
 
             foreach (IWebElement projectTitle in projectTitlesList)
