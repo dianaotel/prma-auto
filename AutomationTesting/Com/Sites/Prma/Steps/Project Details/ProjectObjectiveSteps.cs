@@ -39,6 +39,8 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Project_Details
             Assert.AreEqual(title, actualTitle);
         }
 
+
+        /**************** Objectives ******************************/
         [When(@"I click on the Objectives edit button")]
         public void WhenIClickOnTheObjectivesEditButton()
         {
@@ -64,11 +66,16 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Project_Details
             projectObjectivePage.ClickOnObjectivesSaveButton();
         }
 
-        [Then(@"the text '(.*)' is saved")]
-        public void ThenTheTextIsSaved(string text)
+        [Then(@"the Objectives text '(.*)' is saved")]
+        public void ThenTheObjectivesTextIsSaved(string text)
         {
             projectObjectivePage.IsObjTextSaved(text);
         }
+        /********************************************************/
+
+
+        /**************** Methodology ****************************/
+        /********************************************************/
 
     }
 }

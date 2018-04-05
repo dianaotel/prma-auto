@@ -17,8 +17,7 @@ namespace AutomationTesting.Features.ProjectDetails
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Project Objective", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-        "f two numbers", SourceFile="Features\\Project Details\\Project Objective.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Project Objective", SourceFile="Features\\Project Details\\Project Objective.feature", SourceLine=0)]
     public partial class ProjectObjectiveFeature
     {
         
@@ -31,8 +30,7 @@ namespace AutomationTesting.Features.ProjectDetails
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Project Objective", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Project Objective", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,92 +61,131 @@ namespace AutomationTesting.Features.ProjectDetails
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void _1VerifyUrlAndPageTitle(string project_Title, string url, string title, string[] exampleTags)
+        public virtual void _4VerifyObjectivesCancelButton(string project_Title, string url, string text, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(1) Verify url and page title", exampleTags);
-#line 6
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(4) Verify Objectives Cancel button", exampleTags);
+#line 43
 this.ScenarioSetup(scenarioInfo);
-#line 7
+#line 44
  testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
+#line 45
  testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
+#line 46
  testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 47
  testRunner.And(string.Format("I navigate to the Project Objective page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
- testRunner.Then(string.Format("I should see the the Project Objective page with URL \'{0}\' and title \'{1}\'", url, title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(1) Verify url and page title, ABBV-085 in SCCHN TPP assessment", SourceLine=14)]
-        public virtual void _1VerifyUrlAndPageTitle_ABBV_085InSCCHNTPPAssessment()
-        {
-#line 6
-this._1VerifyUrlAndPageTitle("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", "Project Objective", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void _2VerifyObjectivesEditButton(string project_Title, string url, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Verify Objectives edit button", exampleTags);
-#line 18
-this.ScenarioSetup(scenarioInfo);
-#line 19
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
- testRunner.And(string.Format("I navigate to the Project Objective page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
+#line 48
  testRunner.And("I click on the Objectives edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
- testRunner.Then("the Objectives editor is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("(2) Verify Objectives edit button, ABBV-085 in SCCHN TPP assessment", SourceLine=27)]
-        public virtual void _2VerifyObjectivesEditButton_ABBV_085InSCCHNTPPAssessment()
-        {
-#line 18
-this._2VerifyObjectivesEditButton("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void _3VerifyObjectivesSaveButton(string project_Title, string url, string text, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(3) Verify Objectives Save button", exampleTags);
-#line 31
-this.ScenarioSetup(scenarioInfo);
-#line 32
- testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
- testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
- testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
- testRunner.And(string.Format("I navigate to the Project Objective page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 36
- testRunner.And("I click on the Objectives edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
+#line 49
  testRunner.And(string.Format("I write text \'{0}\' inside the Objectives editor", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
- testRunner.And("I click on the Objectives Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
- testRunner.Then(string.Format("the text \'{0}\' is saved", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 50
+ testRunner.And("I click on the Objectives Cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.Then("the text is not saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("(3) Verify Objectives Save button, ABBV-085 in SCCHN TPP assessment", SourceLine=42)]
-        public virtual void _3VerifyObjectivesSaveButton_ABBV_085InSCCHNTPPAssessment()
+        [TechTalk.SpecRun.ScenarioAttribute("(4) Verify Objectives Cancel button, ABBV-085 in SCCHN TPP assessment", SourceLine=54)]
+        public virtual void _4VerifyObjectivesCancelButton_ABBV_085InSCCHNTPPAssessment()
         {
-#line 31
-this._3VerifyObjectivesSaveButton("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", "This is a test.", ((string[])(null)));
+#line 43
+this._4VerifyObjectivesCancelButton("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", "This is a test.", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _5VerifyMethodologyEditButton(string project_Title, string url, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(5) Verify Methodology edit button", exampleTags);
+#line 58
+this.ScenarioSetup(scenarioInfo);
+#line 59
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 60
+ testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 61
+ testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 62
+ testRunner.And(string.Format("I navigate to the Project Objective page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+ testRunner.And("I click on the Methodology edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+ testRunner.Then("the Methodology editor is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(5) Verify Methodology edit button, ABBV-085 in SCCHN TPP assessment", SourceLine=67)]
+        public virtual void _5VerifyMethodologyEditButton_ABBV_085InSCCHNTPPAssessment()
+        {
+#line 58
+this._5VerifyMethodologyEditButton("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _6VerifyMethodologySaveButton(string project_Title, string url, string text, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(6) Verify Methodology Save button", exampleTags);
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line 72
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 73
+ testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+ testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 75
+ testRunner.And(string.Format("I navigate to the Project Objective page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 76
+ testRunner.And("I click on the Methodology edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+ testRunner.And(string.Format("I write text \'{0}\' inside the Methodology editor", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+ testRunner.And("I click on the Methodology Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.Then(string.Format("the Methodology text \'{0}\' is saved", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(6) Verify Methodology Save button, ABBV-085 in SCCHN TPP assessment", SourceLine=82)]
+        public virtual void _6VerifyMethodologySaveButton_ABBV_085InSCCHNTPPAssessment()
+        {
+#line 71
+this._6VerifyMethodologySaveButton("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", "This is a test.", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void _7VerifyObjectivesCancelButton(string project_Title, string url, string text, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(7) Verify Objectives Cancel button", exampleTags);
+#line 86
+this.ScenarioSetup(scenarioInfo);
+#line 87
+ testRunner.Given("I navigate to the login URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 88
+ testRunner.And("I login with valid prma admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+ testRunner.When(string.Format("I open the project \'{0}\'", project_Title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 90
+ testRunner.And(string.Format("I navigate to the Project Objective page \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+ testRunner.And("I click on the Objectives edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 92
+ testRunner.And(string.Format("I write text \'{0}\' inside the Objectives editor", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 93
+ testRunner.And("I click on the Objectives Cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
+ testRunner.Then("the text is not saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("(7) Verify Objectives Cancel button, ABBV-085 in SCCHN TPP assessment", SourceLine=97)]
+        public virtual void _7VerifyObjectivesCancelButton_ABBV_085InSCCHNTPPAssessment()
+        {
+#line 86
+this._7VerifyObjectivesCancelButton("ABBV-085 in SCCHN TPP assessment", "project-details/project-objective", "This is a test.", ((string[])(null)));
 #line hidden
         }
         
