@@ -60,6 +60,12 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Project_Details
             projectObjectivePage.WriteTextInObjectivesEditor(text);
         }
 
+        [When(@"I clear the Objectives text")]
+        public void WhenIClearTheObjectivesText()
+        {
+            projectObjectivePage.ClearObjectivesText();
+        }
+
         [When(@"I click on the Objectives Save button")]
         public void WhenIClickOnTheObjectivesSaveButton()
         {
@@ -69,8 +75,23 @@ namespace AutomationTesting.Com.Sites.Prma.Steps.Project_Details
         [Then(@"the Objectives text '(.*)' is saved")]
         public void ThenTheObjectivesTextIsSaved(string text)
         {
-            projectObjectivePage.IsObjTextSaved(text);
+            bool isSaved = projectObjectivePage.IsObjTextSaved(text);
+            Assert.IsTrue(isSaved);
         }
+
+        [When(@"I click on the Objectives Cancel button")]
+        public void WhenIClickOnTheObjectivesCancelButton()
+        {
+            projectObjectivePage.ClickOnObjectivesCancelButton();
+        }
+
+        [Then(@"the Objectives text '(.*)' is not saved")]
+        public void ThenTheObjectivesTextIsNotSaved(string text)
+        {
+            bool isSaved = projectObjectivePage.IsObjTextSaved(text);
+            Assert.IsFalse(isSaved);
+        }
+
         /********************************************************/
 
 

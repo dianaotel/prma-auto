@@ -33,6 +33,8 @@ namespace AutomationTesting.Com.Sites.Prma.Pages.Project_Details
         private By objEditorToolbar = By.CssSelector(objSelector + ".fr-toolbar");
         private By objEditorPanel = By.CssSelector(objSelector + "div[contenteditable='true']");
         private By objSaveButton = By.CssSelector(objSelector + ".save");
+        private By objCancelButton = By.CssSelector(objSelector + ".cancel");
+
 
         public void NavigateToUrl(string url)
         {
@@ -73,14 +75,25 @@ namespace AutomationTesting.Com.Sites.Prma.Pages.Project_Details
             editor.SendKeys(text);
         }
 
+        public void ClearObjectivesText()
+        {
+            webdriver.FindElement(objEditorPanel).Clear();
+        }
+
         public void ClickOnObjectivesSaveButton()
         {
             webdriver.FindElement(objSaveButton).Click();
         }
 
+        public void ClickOnObjectivesCancelButton()
+        {
+            webdriver.FindElement(objCancelButton).Click();
+        }
+
         public bool IsObjTextSaved(string text)
         {
-            return webdriver.FindElement(objTextPanel).Text.Contains(text);
+            return webdriver.FindElement(objTextPanel).Text.Equals(text);
         }
+
     }
 }
